@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://spawner/Spawner.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2048, 1200 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 512, 300 )
+
+[node name="Spawner" type="Area2D"]
+script = ExtResource( 1 )
+spawn_point_number = 8
+
+[node name="SpawnArea" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="ViewPort" type="CollisionShape2D" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+shape = SubResource( 2 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="TopLeft" type="Position2D" parent="."]
+modulate = Color( 0.431373, 0, 1, 1 )
+position = Vector2( -576, -384 )
+__meta__ = {
+"_gizmo_extents_": 64.0
+}
+
+[node name="BottomRight" type="Position2D" parent="."]
+modulate = Color( 0.431373, 0, 1, 1 )
+position = Vector2( 576, 384 )
+__meta__ = {
+"_gizmo_extents_": 64.0
+}
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

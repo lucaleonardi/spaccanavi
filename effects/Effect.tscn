@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://effects/Effect.gd" type="Script" id=1]
+
+[node name="Effect" type="CPUParticles2D"]
+gravity = Vector2( 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Lifetime" type="Timer" parent="."]

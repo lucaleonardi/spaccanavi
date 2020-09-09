@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/background.jpg" type="Texture" id=1]
+[ext_resource path="res://player/default/Default.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemies/hexagon/Hexagon.tscn" type="PackedScene" id=3]
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.368627, 0.368627, 0.368627, 1 )
+position = Vector2( 512, 297 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 24000, 24000 )
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Default" parent="Player" instance=ExtResource( 2 )]
+position = Vector2( 515.67, 304.642 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player/Default"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 515.67, 304.642 )
+current = true
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Hexagon" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 191, 157 )
+[connection signal="body_entered" from="Enemies/Hexagon" to="Enemies/Hexagon" method="_on_enemy_hit"]
