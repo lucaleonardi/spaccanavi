@@ -40,6 +40,11 @@ config/icon="res://icon.png"
 
 Preload="*res://autoload/preload/Preload.tscn"
 
+[display]
+
+window/size/test_width=1024
+window/size/test_height=600
+
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]

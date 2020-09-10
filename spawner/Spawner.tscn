@@ -1,39 +1,56 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://spawner/Spawner.gd" type="Script" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2048, 1200 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 900.0
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 512, 300 )
-
-[node name="Spawner" type="Area2D"]
+[node name="Spawner" type="Node2D"]
 script = ExtResource( 1 )
-spawn_point_number = 8
 
-[node name="SpawnArea" type="CollisionShape2D" parent="."]
-visible = false
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
-[node name="ViewPort" type="CollisionShape2D" parent="."]
-modulate = Color( 1, 1, 0, 1 )
-shape = SubResource( 2 )
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SpawnPoint1" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -902, -13 )
+
+[node name="SpawnPoint2" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -796, -418 )
+
+[node name="SpawnPoint3" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -473, -756 )
+
+[node name="SpawnPoint4" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -3, -894 )
+
+[node name="SpawnPoint5" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 467, -771 )
+
+[node name="SpawnPoint6" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 781, -451 )
+
+[node name="SpawnPoint7" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 893, -5 )
+
+[node name="SpawnPoint8" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 784, 447 )
+
+[node name="SpawnPoint9" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 470, 764 )
+
+[node name="SpawnPoint10" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -2, 901 )
+
+[node name="SpawnPoint11" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -485, 753 )
+
+[node name="SpawnPoint12" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -777, 436 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="TopLeft" type="Position2D" parent="."]
-modulate = Color( 0.431373, 0, 1, 1 )
-position = Vector2( -576, -384 )
-__meta__ = {
-"_gizmo_extents_": 64.0
-}
-
-[node name="BottomRight" type="Position2D" parent="."]
-modulate = Color( 0.431373, 0, 1, 1 )
-position = Vector2( 576, 384 )
-__meta__ = {
-"_gizmo_extents_": 64.0
-}
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

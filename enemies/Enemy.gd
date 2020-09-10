@@ -16,6 +16,8 @@ func _on_Stats_no_health() -> void:
 	queue_free()
 	var death_effect: CPUParticles2D = DeathEffect.instance()
 	death_effect.connect("effect_finished", death_effect, "queue_free")
-	death_effect.emitting = true
-	get_parent().add_child(death_effect)
 	death_effect.global_position = global_position
+	death_effect.emitting = true
+	
+	death_effect.set_as_toplevel(true)
+	get_parent().add_child(death_effect)
