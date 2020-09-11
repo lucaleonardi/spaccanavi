@@ -4,14 +4,18 @@
 [ext_resource path="res://stats/Stats.tscn" type="PackedScene" id=2]
 
 [node name="Enemy" type="RigidBody2D"]
+collision_layer = 2147483652
+collision_mask = 5
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 
 [node name="Stats" parent="." instance=ExtResource( 2 )]
 

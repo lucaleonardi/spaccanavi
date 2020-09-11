@@ -27,7 +27,6 @@ shape = SubResource( 1 )
 max_health = 3
 
 [node name="VisibilityEnabler2D" parent="." index="3"]
-scale = Vector2( 3.2, 3.2 )
 process_parent = true
 physics_process_parent = true
 

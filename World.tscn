@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/background.jpg" type="Texture" id=1]
 [ext_resource path="res://player/default/Default.tscn" type="PackedScene" id=2]
 [ext_resource path="res://spawner/Spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/chaser/Chaser.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 
@@ -13,15 +14,20 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 24000, 24000 )
 
+[node name="Spawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( 515.67, 304.642 )
+EnemyType = ExtResource( 4 )
+
 [node name="Player" type="Node" parent="."]
 
 [node name="Default" parent="Player" instance=ExtResource( 2 )]
 position = Vector2( 515.67, 304.642 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player/Default"]
+[node name="RemoteCamera" type="RemoteTransform2D" parent="Player/Default"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="Spawner" parent="Player/Default" instance=ExtResource( 3 )]
+[node name="RemoteSpawner" type="RemoteTransform2D" parent="Player/Default"]
+remote_path = NodePath("../../../Spawner")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 515.67, 304.642 )
@@ -31,4 +37,4 @@ current = true
 
 [node name="Bullets" type="Node" parent="."]
 
-[editable path="Player/Default/Spawner"]
+[editable path="Player/Default"]
