@@ -10,5 +10,7 @@ const EFFECT := {
 }
 
 const ENEMY := {
-	HEXAGON = "res://enemies/hexagon/Hexagon.tscn"
+	HEXAGON = "res://enemies/hexagon/Hexagon.tscn",
+	TANK = "res://enemies/tank/Tank.tscn",
+	CHASER = "res://enemies/chaser/ChaserGroup.tscn",
 }

@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
+}, {
+"base": "RigidBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/Player.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "Enemy": "",
-"GitAPI": ""
+"GitAPI": "",
+"Player": ""
 }
 
 [application]
@@ -42,8 +48,8 @@ Preload="*res://autoload/preload/Preload.tscn"
 
 [display]
 
-window/size/test_width=1024
-window/size/test_height=600
+window/size/width=1360
+window/size/height=768
 
 [gdnative]
 

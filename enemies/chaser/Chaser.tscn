@@ -5,20 +5,27 @@
 [ext_resource path="res://enemies/chaser/Chaser.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 9.32375
-height = 4.00114
+radius = 11.0
+height = 8.00004
 
 [node name="Chaser" instance=ExtResource( 1 )]
+modulate = Color( 0, 0.419608, 1, 1 )
 collision_layer = 4
+mass = 0.5
 script = ExtResource( 3 )
+speed = 36.0
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.3, 0.4 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -1.68179, 0 )
+[node name="Hitbox" parent="." index="1"]
+position = Vector2( -3, 0 )
 shape = SubResource( 1 )
+
+[node name="Stats" parent="." index="2"]
+max_health = 10
 
 [node name="VisibilityEnabler2D" parent="." index="3"]
 position = Vector2( -3.04825, 0 )
+[connection signal="body_entered" from="." to="." method="_on_Chaser_body_entered"]

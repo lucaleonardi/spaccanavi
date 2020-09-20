@@ -6,48 +6,10 @@
 rotation = 1.5708
 
 [node name="Chaser" parent="." instance=ExtResource( 1 )]
-rotation = 0.0
+position = Vector2( 0.0640688, 11 )
 
 [node name="Chaser2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 16.6855, -18.0203 )
-rotation = 0.0
+position = Vector2( 16.7496, -7.0203 )
 
 [node name="Chaser3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -11.0641, -19.7021 )
-rotation = 0.0
-
-[node name="Chaser4" parent="." instance=ExtResource( 1 )]
-position = Vector2( -27.4616, 0.0589333 )
-rotation = 0.0
-
-[node name="Chaser5" parent="." instance=ExtResource( 1 )]
-position = Vector2( -14.8481, 20.2404 )
-rotation = 0.0
-
-[node name="Chaser6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 13.3219, 20.6609 )
-rotation = 0.0
-
-[node name="Chaser7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 28.0376, 1.74071 )
-rotation = 0.0
-
-[node name="Chaser8" parent="." instance=ExtResource( 1 )]
-position = Vector2( -44.7, 21.0813 )
-rotation = 0.0
-
-[node name="Chaser9" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40.075, -26.4293 )
-rotation = 0.0
-
-[node name="Chaser10" parent="." instance=ExtResource( 1 )]
-position = Vector2( -60.2565, -2.88421 )
-rotation = 0.0
-
-[node name="Chaser11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 53.2645, -7.50914 )
-rotation = 0.0
-
-[node name="Chaser12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 49.4804, 18.5587 )
-rotation = 0.0
+position = Vector2( -11, -8.7021 )

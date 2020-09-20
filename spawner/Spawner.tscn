@@ -9,11 +9,13 @@ radius = 900.0
 script = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
 [node name="SpawnPoints" type="Node2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
 
 [node name="SpawnPoint1" type="Position2D" parent="SpawnPoints"]
 position = Vector2( -902, -13 )
@@ -52,5 +54,4 @@ position = Vector2( -485, 753 )
 position = Vector2( -777, 436 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
-autostart = true
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
