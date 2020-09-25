@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/background.jpg" type="Texture" id=1]
 [ext_resource path="res://player/default/Default.tscn" type="PackedScene" id=2]
-[ext_resource path="res://spawner/Spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://spawner/enemy/EnemySpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/Interface.tscn" type="PackedScene" id=5]
+[ext_resource path="res://spawner/ability/AbilitySpawner.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node2D"]
 
@@ -14,6 +15,12 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 24000, 24000 )
 
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Bullets" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
+
 [node name="Player" type="Node" parent="."]
 
 [node name="Default" parent="Player" instance=ExtResource( 2 )]
@@ -23,12 +30,12 @@ mode = 2
 [node name="RemoteCamera" type="RemoteTransform2D" parent="Player/Default"]
 remote_path = NodePath("../../../Camera2D")
 
-[node name="Spawner" parent="Player/Default" instance=ExtResource( 3 )]
-active = false
+[node name="EnemySpawner" parent="Player/Default" instance=ExtResource( 3 )]
+spawn_speed = 2.0
 
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Bullets" type="Node" parent="."]
+[node name="AbilitiesSpawner" parent="Player/Default" instance=ExtResource( 7 )]
+rotation = 0.307178
+spawn_speed = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 680, 383 )

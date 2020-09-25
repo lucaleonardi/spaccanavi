@@ -1,4 +1,5 @@
 extends Node
+class_name Stats
 
 export (int) var max_health = 100 setget set_max_health
 var health: int = max_health setget set_health

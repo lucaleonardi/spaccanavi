@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Ability",
+"language": "GDScript",
+"path": "res://abilities/Ability.gd"
+}, {
 "base": "RigidBody2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -25,15 +30,34 @@ _global_script_classes=[ {
 "path": "res://git_api.gdns"
 }, {
 "base": "RigidBody2D",
+"class": "Pickup",
+"language": "GDScript",
+"path": "res://pickup/Pickup.gd"
+}, {
+"base": "RigidBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://player/Player.gd"
+}, {
+"base": "Node2D",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://spawner/Spawner.gd"
+}, {
+"base": "Node",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://stats/Stats.gd"
 } ]
 _global_script_class_icons={
+"Ability": "",
 "Bullet": "",
 "Enemy": "",
 "GitAPI": "",
-"Player": ""
+"Pickup": "",
+"Player": "",
+"Spawner": "",
+"Stats": ""
 }
 
 [application]
@@ -45,6 +69,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Preload="*res://autoload/preload/Preload.tscn"
+PlayerStats="*res://autoload/player_stats/PlayerStats.tscn"
 
 [display]
 
@@ -85,7 +110,7 @@ ui_down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
  ]
 }
-boost={
+activate_pickup={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
  ]
@@ -101,6 +126,7 @@ shoot={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Bullet"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Pickup"
 
 [rendering]
 
