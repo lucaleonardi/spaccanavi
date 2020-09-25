@@ -28,10 +28,6 @@ shape = SubResource( 1 )
 [node name="Stats" parent="." index="2"]
 max_health = 120
 
-[node name="VisibilityEnabler2D" parent="." index="3"]
-process_parent = true
-physics_process_parent = true
-
 [node name="RayCast2D" type="RayCast2D" parent="." index="4"]
 enabled = true
 cast_to = Vector2( 50, 0 )

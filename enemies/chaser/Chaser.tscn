@@ -25,7 +25,4 @@ shape = SubResource( 1 )
 
 [node name="Stats" parent="." index="2"]
 max_health = 10
-
-[node name="VisibilityEnabler2D" parent="." index="3"]
-position = Vector2( -3.04825, 0 )
 [connection signal="body_entered" from="." to="." method="_on_Chaser_body_entered"]

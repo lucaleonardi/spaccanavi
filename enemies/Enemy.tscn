@@ -21,7 +21,13 @@ rotation = 1.5708
 [node name="Stats" parent="." instance=ExtResource( 2 )]
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( -312, -168 )
+rect = Rect2( -10, -10, 640, 360 )
 freeze_bodies = false
+process_parent = true
+physics_process_parent = true
+__meta__ = {
+"_editor_description_": "q"
+}
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
