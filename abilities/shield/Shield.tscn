@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://abilities/shield/shield.png" type="Texture" id=1]
+[ext_resource path="res://abilities/shield/Shield.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 70.0
+
+[node name="Shield" type="CollisionShape2D"]
+shape = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )

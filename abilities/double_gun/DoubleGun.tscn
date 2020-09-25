@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://abilities/double_gun/DoubleGun.gd" type="Script" id=1]
+[ext_resource path="res://abilities/Ability.tscn" type="PackedScene" id=2]
+
+[node name="DoubleGun" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+
+[node name="ShootingCooldown" type="Timer" parent="." index="0"]
+wait_time = 0.12

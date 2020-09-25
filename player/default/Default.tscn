@@ -4,6 +4,7 @@
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 
 [node name="Default" instance=ExtResource( 2 )]
+health = 200
 
 [node name="Sprite" parent="ShootingDirection" index="0"]
 texture = ExtResource( 1 )
@@ -12,3 +13,5 @@ texture = ExtResource( 1 )
 position = Vector2( 2.38419e-07, -7.27596e-12 )
 scale = Vector2( 0.782663, 0.782663 )
 polygon = PoolVector2Array( -32.0001, 23.9998, 0.000250975, -40, 31.9998, 24.0002, -0.00010039, 12.8623 )
+
+[editable path="ShootingDirection/Gun"]
