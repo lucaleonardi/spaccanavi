@@ -11,9 +11,11 @@ height = 8.00004
 [node name="Chaser" instance=ExtResource( 1 )]
 modulate = Color( 0, 0.419608, 1, 1 )
 collision_layer = 4
-mass = 0.5
+mass = 1.0
+linear_damp = 2.0
 script = ExtResource( 3 )
 speed = 36.0
+wave_points = 20
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.3, 0.4 )

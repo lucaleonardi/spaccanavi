@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://enemies/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemies/hexagon/hexagon.png" type="Texture" id=2]
+[ext_resource path="res://enemies/tank/Tank.png" type="Texture" id=2]
 [ext_resource path="res://enemies/tank/Tank.gd" type="Script" id=3]
 [ext_resource path="res://bullets/cannon_ball/CannonBall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=5]
@@ -10,15 +10,21 @@
 radius = 48.0
 height = 54.0
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 13.887
+
 [node name="Tank" instance=ExtResource( 1 )]
-modulate = Color( 0.513726, 1, 0.235294, 1 )
+modulate = Color( 0.235294, 1, 0.964706, 1 )
 collision_layer = 4
 mass = 50.0
+angular_damp = 4.0
 script = ExtResource( 3 )
+speed = 10.0
+wave_points = 200
 
 [node name="Sprite" parent="." index="0"]
+position = Vector2( 27.4056, 0 )
 rotation = 0.0
-scale = Vector2( 1.75, 2.8 )
 texture = ExtResource( 2 )
 
 [node name="Hitbox" parent="." index="1"]
@@ -28,17 +34,24 @@ shape = SubResource( 1 )
 [node name="Stats" parent="." index="2"]
 max_health = 120
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="4"]
-enabled = true
-cast_to = Vector2( 50, 0 )
-
-[node name="Gun" parent="." index="5" instance=ExtResource( 5 )]
-position = Vector2( 56, 0 )
+[node name="Gun" parent="." index="3" instance=ExtResource( 5 )]
+position = Vector2( 132.755, 0 )
+scale = Vector2( 2, 2 )
 bullet_velocity = 800
 BulletType = ExtResource( 4 )
 
 [node name="Cooldown" parent="Gun" index="0"]
 wait_time = 4.0
-autostart = true
+
+[node name="Area2D" type="Area2D" parent="Gun" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gun/Area2D" index="0"]
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="4"]
+scale = Vector2( 2, 40 )
+enabled = true
+cast_to = Vector2( 500, 0 )
+collision_mask = 5
 
 [editable path="Gun"]

@@ -16,6 +16,8 @@ mass = 500.0
 angular_velocity = 2.0
 angular_damp = 0.0
 script = ExtResource( 2 )
+speed = 50.0
+wave_points = 100
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 1.5, 1.5 )

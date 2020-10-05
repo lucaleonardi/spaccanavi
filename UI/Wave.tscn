@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/fonts/Futura Heavy font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/WaveBar/wave_outline.png" type="Texture" id=2]
+[ext_resource path="res://UI/WaveBar/wave_fill.png" type="Texture" id=3]
+[ext_resource path="res://UI/WaveBar/WaveBar.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="WaveHandler" type="VBoxContainer"]
+margin_left = 538.0
+margin_top = 48.0
+margin_right = 822.0
+margin_bottom = 97.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 103.0
+margin_right = 181.0
+margin_bottom = 30.0
+grow_horizontal = 2
+rect_min_size = Vector2( 49, 14 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "WAVE "
+align = 1
+uppercase = true
+
+[node name="WaveBar" type="TextureProgress" parent="."]
+margin_top = 34.0
+margin_right = 284.0
+margin_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 283, 14 )
+rect_pivot_offset = Vector2( 141, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 2
+value = 100.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+tint_progress = Color( 0.435294, 0.921569, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

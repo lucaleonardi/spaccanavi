@@ -24,7 +24,6 @@ region_rect = Rect2( 0, 0, 24000, 24000 )
 [node name="Player" type="Node" parent="."]
 
 [node name="Default" parent="Player" instance=ExtResource( 2 )]
-position = Vector2( 680, 383 )
 mode = 2
 
 [node name="RemoteCamera" type="RemoteTransform2D" parent="Player/Default"]
@@ -38,7 +37,6 @@ rotation = 0.307178
 spawn_speed = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 680, 383 )
 current = true
 process_mode = 0
 smoothing_speed = 30.0

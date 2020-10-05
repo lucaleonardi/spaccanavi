@@ -13,6 +13,5 @@ func _on_timeout() -> void:
 	destroy()
 
 func _on_hit(body: Node) -> void:
-	var color = body.modulate
-	emit_signal("hit", color, global_position)
+	emit_signal("hit", body.modulate, global_position)
 	destroy()

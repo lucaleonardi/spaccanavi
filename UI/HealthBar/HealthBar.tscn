@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/1024x600/health_outline.png" type="Texture" id=1]
+[ext_resource path="res://UI/1024x600/health_fill.png" type="Texture" id=2]
+
+[node name="HealthBar" type="TextureProgress"]
+margin_left = 397.0
+margin_top = 704.0
+margin_right = 963.0
+margin_bottom = 732.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 566, 28 )
+rect_pivot_offset = Vector2( 283, 28 )
+size_flags_horizontal = 4
+size_flags_vertical = 8
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+fill_mode = 6
+tint_progress = Color( 0.0823529, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

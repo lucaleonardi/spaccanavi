@@ -7,7 +7,6 @@
 radius = 8.0
 
 [node name="BallMedium" instance=ExtResource( 2 )]
-collision_mask = 1
 mode = 2
 mass = 5.0
 damage = 5.0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rounded-test.png-68e2df14b07bbc095e1ba26afa4b29e2.stex"
+path="res://.import/wave_outline.png-c58d094a3108e44fbdb9b996108eb450.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/rounded-test.png"
-dest_files=[ "res://.import/rounded-test.png-68e2df14b07bbc095e1ba26afa4b29e2.stex" ]
+source_file="res://UI/WaveBar/wave_outline.png"
+dest_files=[ "res://.import/wave_outline.png-c58d094a3108e44fbdb9b996108eb450.stex" ]
 
 [params]
 

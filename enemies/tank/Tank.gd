@@ -1,18 +1,26 @@
 extends Enemy
 
-export (float) var speed = 500
-
 onready var gun: Position2D = $Gun
 onready var shooting_cooldown: Timer = $Gun/Cooldown
-onready var player = get_tree().root.get_node("World/Player/Default")
+
+onready var hitbox: CollisionShape2D = $Hitbox
+onready var raycast: RayCast2D = $RayCast2D
+
 
 func _physics_process(delta: float) -> void:
 	if get_tree().root.get_node("World/Player").has_node("Default"):
-		global_position += (player.global_position - global_position) / speed
+		chase_player()
 		look_at(player.global_position)
+		
+		if raycast.is_colliding():
+			if raycast.get_collider() is Player:
+				shooting()
+#		hitbox.rotation = raycast.rotation + PI
+#		raycast.rotation = lerp_angle(raycast.rotation, get_angle_to(player.global_position), 0.05)
 	
+
+func shooting() -> void:
 	if shooting_cooldown.is_stopped() and get_tree().root.get_node("World/Player").has_node("Default"):
-		gun.shoot(modulate, global_rotation, Vector2.ZERO)
+		gun.shoot(modulate, global_rotation, linear_velocity)
 		shooting_cooldown.start()
-	
-	
+

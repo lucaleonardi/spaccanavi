@@ -22,8 +22,8 @@ func shoot(enemy_color: Color, spaceship_rotation: float, spaceship_velocity: Ve
 	bullet.apply_central_impulse(direction * bullet_velocity + spaceship_velocity)
 	bullet.set_modulate(enemy_color)
 	
-	bullet.set_as_toplevel(true)
-	get_tree().root.add_child(bullet)
+#	bullet.set_as_toplevel(true)
+	get_tree().root.get_node("World/Bullets").add_child(bullet)
 
 func create_hit_effect(enemy_color: Color, hit_global_position: Vector2, hit_direction: Vector2) -> void:
 	var hit: CPUParticles2D = HitEffect.instance()

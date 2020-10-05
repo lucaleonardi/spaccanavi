@@ -70,6 +70,7 @@ config/icon="res://icon.png"
 
 Preload="*res://autoload/preload/Preload.tscn"
 PlayerStats="*res://autoload/player_stats/PlayerStats.tscn"
+WaveManager="*res://autoload/wave_manager/WaveManager.tscn"
 
 [display]
 

@@ -32,6 +32,7 @@ var ability_type: PackedScene
 
 func _ready() -> void:
 	PlayerStats.max_health = health
+	PlayerStats.health = health
 	PlayerStats.connect("no_health", self, "death")
 
 func _process(delta):
