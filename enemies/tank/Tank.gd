@@ -7,6 +7,9 @@ onready var hitbox: CollisionShape2D = $Hitbox
 onready var raycast: RayCast2D = $RayCast2D
 
 
+func _ready() -> void:
+	gun.bullet_group = "enemy"
+	
 func _physics_process(delta: float) -> void:
 	if get_tree().root.get_node("World/Player").has_node("Default"):
 		chase_player()

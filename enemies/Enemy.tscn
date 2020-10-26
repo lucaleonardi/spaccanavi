@@ -3,7 +3,9 @@
 [ext_resource path="res://enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://stats/Stats.tscn" type="PackedScene" id=2]
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Enemy" type="RigidBody2D" groups=[
+"enemy",
+]]
 collision_layer = 2147483652
 collision_mask = 5
 mass = 10.0

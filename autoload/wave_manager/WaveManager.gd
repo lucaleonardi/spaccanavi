@@ -19,24 +19,23 @@ var max_wave_bar = 500
 var wave_bar := 0
 var current_wave := 1
 
-func _ready() -> void:
-	print("wave_bar_status: ", wave_bar)
 
 func increment_wave_bar(points: int) -> void:
 	wave_bar += points
-	emit_signal("wave_fill_change", wave_bar)
 	
 	if wave_bar >= max_wave_bar:
 		next_wave()
+	else:
+		emit_signal("wave_fill_change", wave_bar)
 
-func next_wave() -> void:
-	# 1. bar reset
+func next_wave() -> void:	
+	# 1. next wave
+	current_wave += 1
+	
+	# 2. bar reset
 	wave_bar = 0
 	max_wave_bar *= _wave_multiplier
 	emit_signal("wave_completed", max_wave_bar)
-	
-	# 2. next wave
-	current_wave += 1
 	
 	# 3. end wave reward: player health refill
 	PlayerStats.health = PlayerStats.max_health

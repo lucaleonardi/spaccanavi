@@ -15,6 +15,7 @@ onready var hitbox: CollisionPolygon2D = $Hitbox
 onready var raycast: RayCast2D = $ShootingDirection
 onready var gun: Position2D = $ShootingDirection/Gun
 onready var shooting_cooldown: Timer = $ShootingDirection/Gun/Cooldown
+onready var hurt_sound: AudioStreamPlayer = $HurtSound
 
 var input_vector := Vector2.ZERO
 var thrust = Vector2()
@@ -34,6 +35,8 @@ func _ready() -> void:
 	PlayerStats.max_health = health
 	PlayerStats.health = health
 	PlayerStats.connect("no_health", self, "death")
+	
+	gun.bullet_group = "player"
 
 func _process(delta):
 	input_vector = get_input()
@@ -89,8 +92,9 @@ func is_picked(Ability) -> void:
 
 
 func _on_Player_body_entered(body: Node) -> void:
-	if body is Bullet and !invincible:	
-		#RICORDARSI CHE NEL CASO DELLO SHIELD IL GIOCATORE NON DEVE PRENDERE DANNO
+	hurt_sound.play()
+	
+	if body is Bullet and !invincible:
 		PlayerStats.health -= body.damage
 	
 	if body is Enemy:

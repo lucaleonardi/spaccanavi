@@ -30,21 +30,17 @@ shape = SubResource( 1 )
 [node name="Stats" parent="." index="2"]
 max_health = 80
 
-[node name="GunsPositioning" type="Position2D" parent="." index="4"]
-
-[node name="Gun1" parent="GunsPositioning" index="0" instance=ExtResource( 4 )]
+[node name="Gun1" parent="." index="4" instance=ExtResource( 4 )]
 position = Vector2( 2.91038e-11, -58.6667 )
 rotation = 5.87106e-06
 bullet_velocity = 120
 BulletType = ExtResource( 5 )
 
-[node name="Cooldown" parent="GunsPositioning/Gun1" index="0"]
-wait_time = 0.2
-
-[node name="Gun2" parent="GunsPositioning" index="1" instance=ExtResource( 4 )]
+[node name="Gun2" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( -1.45519e-11, 58.6667 )
 rotation = -3.14159
 bullet_velocity = 120
 BulletType = ExtResource( 5 )
 
-[editable path="GunsPositioning/Gun1"]
+[node name="GunsPositioning" type="Position2D" parent="." index="6"]
+visible = false

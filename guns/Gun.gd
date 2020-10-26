@@ -7,10 +7,14 @@ export (int) var bullet_velocity = 500
 export (PackedScene) var BulletType = preload(bullet_path)
 export (PackedScene) var HitEffect = preload(effect_path)
 
-onready var timer = $Cooldown
+onready var timer: Timer = $Cooldown
+
+var bullet_group := ""
+
 
 func shoot(enemy_color: Color, spaceship_rotation: float, spaceship_velocity: Vector2) -> void:
 	var bullet: RigidBody2D = BulletType.instance()
+	bullet.add_to_group(bullet_group)
 	var direction := Vector2(
 			cos(spaceship_rotation), 
 			sin(spaceship_rotation)

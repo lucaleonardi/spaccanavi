@@ -8,7 +8,7 @@ var animated_wave := 0
 
 func _ready() -> void:
 	WaveManager.connect("wave_fill_change", self, "update_wave_bar")
-	WaveManager.connect("wave_completed", self, "on_fill")
+	WaveManager.connect("wave_completed", self, "on_complete_fill")
 	wave_bar.max_value = WaveManager.max_wave_bar
 	
 	label.text = str("WAVE ", WaveManager.current_wave)
@@ -22,7 +22,7 @@ func update_wave_bar(wave_fill: int) -> void:
 	if not tween.is_active():
 		tween.start()
 
-func on_fill(new_max_value: int) -> void:
-	wave_bar.value = 0
+func on_complete_fill(new_max_value: int) -> void:
+	update_wave_bar(0)
 	wave_bar.max_value = new_max_value
 	label.text = str("WAVE ", WaveManager.current_wave)

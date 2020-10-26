@@ -20,5 +20,8 @@ rotation = -1.57079
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="SoundEffect" type="AudioStreamPlayer" parent="."]
+volume_db = -12.0
 [connection signal="body_entered" from="." to="." method="_on_hit"]
 [connection signal="timeout" from="Timer" to="." method="_on_timeout"]

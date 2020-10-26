@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://bullets/Bullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bullets/plasma/plasma.png" type="Texture" id=2]
+[ext_resource path="res://bullets/plasma/plasma.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.69487
 height = 17.1391
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 3 )
+random_pitch = 1.2
 
 [node name="Plasma" instance=ExtResource( 1 )]
 collision_mask = 4
@@ -16,3 +21,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
+
+[node name="SoundEffect" parent="." index="3"]
+stream = SubResource( 2 )
+autoplay = true

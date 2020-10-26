@@ -4,7 +4,7 @@
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 
 [node name="Default" instance=ExtResource( 2 )]
-health = 200
+health = 50
 
 [node name="Sprite" parent="ShootingDirection" index="0"]
 texture = ExtResource( 1 )

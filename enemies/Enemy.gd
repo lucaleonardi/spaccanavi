@@ -14,6 +14,7 @@ onready var stats: Node = $Stats
 
 var direction := Vector2.ZERO
 var distance_to_player := 0.0
+var _is_hit_by_player = false
 
 
 func _ready() -> void:
@@ -28,9 +29,15 @@ func chase_player() -> void:
 func _on_Enemy_body_entered(body: Node) -> void:
 	if body is Bullet:
 		stats.health -= body.damage
+				
+		if body.is_in_group("enemy"):
+			_is_hit_by_player = false
+		elif body.is_in_group("player"):
+			_is_hit_by_player = true
 
-func _on_Stats_no_health() -> void:
-	emit_signal("enemy_death", wave_points)
+func _on_Stats_no_health() -> void: 
+	if _is_hit_by_player:
+		emit_signal("enemy_death", wave_points)
 	queue_free()
 	var death_effect: CPUParticles2D = DeathEffect.instance()
 	death_effect.connect("effect_finished", death_effect, "queue_free")

@@ -3,6 +3,8 @@ class_name Bullet
 
 export (float) var damage = 1.0
 
+onready var sound_effect: AudioStreamPlayer2D = $SoundEffect
+
 signal hit
 
 

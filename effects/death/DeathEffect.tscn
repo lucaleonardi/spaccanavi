@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://effects/Effect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/death_explosion.wav" type="AudioStream" id=2]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.36818, 0.0, 0, 0 ]
@@ -27,3 +28,7 @@ damping_random = 1.0
 scale_amount = 24.0
 scale_amount_random = 0.8
 scale_amount_curve = SubResource( 1 )
+
+[node name="Explosion" type="AudioStreamPlayer" parent="." index="1"]
+stream = ExtResource( 2 )
+autoplay = true
