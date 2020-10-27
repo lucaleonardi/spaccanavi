@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://camera/ShakerCamera2D.gd" type="Script" id=1]
+
+[node name="ShakerCamera2D" type="Camera2D"]
+current = true
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 15.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_drag_margin = true
+script = ExtResource( 1 )
+max_offset = Vector2( 100, 75 )
+
+[node name="Limits" type="Node" parent="."]
+
+[node name="TopLeft" type="Position2D" parent="Limits"]
+position = Vector2( -679, -387 )
+__meta__ = {
+"_gizmo_extents_": 128.0
+}
+
+[node name="BottomRight" type="Position2D" parent="Limits"]
+position = Vector2( 682, 386 )
+__meta__ = {
+"_gizmo_extents_": 128.0
+}

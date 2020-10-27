@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Menu/Menu.tscn" type="PackedScene" id=1]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Menu" parent="GUI" instance=ExtResource( 1 )]
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]

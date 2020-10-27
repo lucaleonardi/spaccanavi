@@ -7,7 +7,6 @@
 radius = 29.1548
 
 [node name="CannonBall" instance=ExtResource( 2 )]
-collision_mask = 5
 mode = 2
 mass = 500.0
 linear_damp = 0.2

@@ -30,6 +30,8 @@ var has_pickup := false
 var ability_has_finished := true
 var ability_type: PackedScene
 
+signal hit
+
 
 func _ready() -> void:
 	PlayerStats.max_health = health
@@ -95,6 +97,7 @@ func _on_Player_body_entered(body: Node) -> void:
 	hurt_sound.play()
 	
 	if body is Bullet and !invincible:
+		emit_signal("hit", max(0.3, body.mass / 100))
 		PlayerStats.health -= body.damage
 	
 	if body is Enemy:
@@ -104,6 +107,9 @@ func _on_Player_body_entered(body: Node) -> void:
 		var _player_mass = mass
 		var _enemy_mass = body.mass
 		var _collision_damage = _velocity * _enemy_mass / _player_mass / 200
+		
+		emit_signal("hit", max(0.3, _collision_damage / 20))
+		print(_collision_damage / 20)
 		
 		if !invincible:
 			PlayerStats.health -= _collision_damage
