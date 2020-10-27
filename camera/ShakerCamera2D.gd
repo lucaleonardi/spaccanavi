@@ -33,9 +33,10 @@ func _ready() -> void:
 	noise.octaves = 2
 
 func _process(delta: float) -> void:
-	distance = get_global_mouse_position() - player.global_position
-	offset.x = lerp(offset.x, clamp(distance.x, -pointer_drag.x, pointer_drag.x) / 2, 0.1)
-	offset.y = lerp(offset.y, clamp(distance.y, -pointer_drag.y, pointer_drag.y) / 2, 0.1)
+	if get_tree().root.get_node("World/Player").has_node("Default"):
+		distance = get_global_mouse_position() - player.global_position
+		offset.x = lerp(offset.x, clamp(distance.x, -pointer_drag.x, pointer_drag.x) / 2, 0.1)
+		offset.y = lerp(offset.y, clamp(distance.y, -pointer_drag.y, pointer_drag.y) / 2, 0.1)
 	
 	if trauma:
 		trauma = max(trauma - decay * delta, 0)
