@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://background/parallax/stars1.png" type="Texture" id=1]
+[ext_resource path="res://background/parallax/dark_bg.png" type="Texture" id=2]
+[ext_resource path="res://background/parallax/stars2.png" type="Texture" id=3]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="DarkBg" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 2720, 1536 )
+
+[node name="Sprite" type="Sprite" parent="DarkBg"]
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 2720, 1536 )
+
+[node name="Stars2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.8, 0.8 )
+motion_mirroring = Vector2( 2720, 1536 )
+
+[node name="Sprite" type="Sprite" parent="Stars2"]
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 2720, 1536 )
+
+[node name="Stars1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.9, 0.9 )
+motion_mirroring = Vector2( 2720, 1536 )
+
+[node name="Sprite" type="Sprite" parent="Stars1"]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 2720, 1536 )

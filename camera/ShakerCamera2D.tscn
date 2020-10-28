@@ -13,7 +13,6 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 script = ExtResource( 1 )
-max_offset = Vector2( 100, 75 )
 
 [node name="Limits" type="Node" parent="."]
 

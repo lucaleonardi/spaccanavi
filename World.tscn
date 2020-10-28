@@ -1,21 +1,20 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://background/background.jpg" type="Texture" id=1]
 [ext_resource path="res://player/default/Default.tscn" type="PackedScene" id=2]
 [ext_resource path="res://spawner/enemy/EnemySpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/player_hurt3.wav" type="AudioStream" id=4]
 [ext_resource path="res://UI/Interface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://camera/ShakerCamera2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://spawner/ability/AbilitySpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://background/ParallaxBackground.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mouse/MousePointer.tscn" type="PackedScene" id=9]
 
 [node name="World" type="Node2D"]
 
-[node name="Background" type="Sprite" parent="."]
-modulate = Color( 0.368627, 0.368627, 0.368627, 1 )
-position = Vector2( 512, 297 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 24000, 24000 )
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ParallaxBackground" parent="BackgroundLayer" instance=ExtResource( 8 )]
 
 [node name="Pickups" type="Node" parent="."]
 
@@ -46,16 +45,12 @@ remote_path = NodePath("../../ShakerCamera2D")
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
-[node name="TopLeft" parent="Player/ShakerCamera2D/Limits" index="0"]
-position = Vector2( -11488, -11703 )
-
-[node name="BottomRight" parent="Player/ShakerCamera2D/Limits" index="1"]
-position = Vector2( 12512, 12297 )
-
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="GUI" instance=ExtResource( 5 )]
 
-[editable path="Player/Default"]
+[node name="MousePointer" parent="." instance=ExtResource( 9 )]
 
-[editable path="Player/ShakerCamera2D"]
+[editable path="BackgroundLayer/ParallaxBackground"]
+
+[editable path="Player/Default"]

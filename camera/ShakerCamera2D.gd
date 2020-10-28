@@ -8,6 +8,7 @@ var noise_y := 0
 export (float) var decay = 0.8
 export (Vector2) var max_offset = Vector2(100, 75)
 export (float) var max_roll = 0.1
+export (bool) var enable_limits = false
 
 var trauma := 0.0
 var trauma_power := 2
@@ -19,10 +20,11 @@ var distance
 var pointer_drag := Vector2(170, 96)
 
 func _ready() -> void:
-	limit_top = topLeft.position.y
-	limit_left = topLeft.position.x
-	limit_bottom = bottomRight.position.y
-	limit_right = bottomRight.position.x
+	if enable_limits:
+		limit_top = topLeft.position.y
+		limit_left = topLeft.position.x
+		limit_bottom = bottomRight.position.y
+		limit_right = bottomRight.position.x
 	
 	player = get_tree().root.get_node("World/Player/Default")
 	player.connect("hit", self, "add_trauma")

@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 onready var label: Label = $Label
-onready var wave_bar: ProgressBar = $WaveBar
+onready var wave_bar: TextureProgress = $WaveBar
 onready var tween: Tween = $Tween
 
 var animated_wave := 0

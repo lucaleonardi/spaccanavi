@@ -76,6 +76,7 @@ WaveManager="*res://autoload/wave_manager/WaveManager.tscn"
 
 window/size/width=1360
 window/size/height=768
+mouse_cursor/custom_image="res://mouse/pointer.png"
 
 [gdnative]
 
