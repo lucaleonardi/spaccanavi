@@ -63,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Space Shooter"
-run/main_scene="res://World.tscn"
+run/main_scene="res://main_menu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -76,7 +76,6 @@ WaveManager="*res://autoload/wave_manager/WaveManager.tscn"
 
 window/size/width=1360
 window/size/height=768
-mouse_cursor/custom_image="res://mouse/pointer.png"
 
 [gdnative]
 

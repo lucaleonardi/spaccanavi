@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://shaders/Damage.shader" type="Shader" id=1]
 [ext_resource path="res://player/default/Default.tscn" type="PackedScene" id=2]
 [ext_resource path="res://spawner/enemy/EnemySpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/player_hurt3.wav" type="AudioStream" id=4]
@@ -8,6 +9,10 @@
 [ext_resource path="res://spawner/ability/AbilitySpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://background/ParallaxBackground.tscn" type="PackedScene" id=8]
 [ext_resource path="res://mouse/MousePointer.tscn" type="PackedScene" id=9]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 1 )
+shader_param/active = false
 
 [node name="World" type="Node2D"]
 
@@ -27,6 +32,9 @@ layer = -100
 [node name="Default" parent="Player" instance=ExtResource( 2 )]
 mode = 2
 
+[node name="Sprite" parent="Player/Default/ShootingDirection" index="0"]
+material = SubResource( 3 )
+
 [node name="HurtSound" parent="Player/Default" index="2"]
 stream = ExtResource( 4 )
 volume_db = -6.0
@@ -36,7 +44,7 @@ spawn_speed = 2.0
 
 [node name="AbilitiesSpawner" parent="Player/Default" instance=ExtResource( 7 )]
 rotation = 0.307178
-spawn_speed = 6.0
+spawn_speed = 1.0
 
 [node name="RemoteCamera" type="RemoteTransform2D" parent="Player/Default"]
 remote_path = NodePath("../../ShakerCamera2D")

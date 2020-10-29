@@ -1,10 +1,45 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://sounds/player_hurt.wav" type="AudioStream" id=2]
 [ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://shaders/Damage.shader" type="Shader" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 4 )
+shader_param/active = false
+
+[sub_resource type="Animation" id=4]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShootingDirection/Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Stop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShootingDirection/Sprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="Player" type="RigidBody2D" groups=[
 "player",
@@ -23,6 +58,7 @@ enabled = true
 cast_to = Vector2( 50, 0 )
 
 [node name="Sprite" type="Sprite" parent="ShootingDirection"]
+material = SubResource( 6 )
 position = Vector2( 8, 0 )
 rotation = 1.57079
 
@@ -33,4 +69,8 @@ rotation = 1.57079
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+
+[node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Start = SubResource( 4 )
+anims/Stop = SubResource( 5 )
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]

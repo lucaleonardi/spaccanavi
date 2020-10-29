@@ -15,7 +15,9 @@ onready var hitbox: CollisionPolygon2D = $Hitbox
 onready var raycast: RayCast2D = $ShootingDirection
 onready var gun: Position2D = $ShootingDirection/Gun
 onready var shooting_cooldown: Timer = $ShootingDirection/Gun/Cooldown
+
 onready var hurt_sound: AudioStreamPlayer = $HurtSound
+onready var blinkAnimationPlayer: AnimationPlayer = $BlinkAnimationPlayer
 
 var input_vector := Vector2.ZERO
 var thrust = Vector2()
@@ -92,24 +94,22 @@ func is_picked(Ability) -> void:
 	has_pickup = true
 	ability_type = Ability
 
-
 func _on_Player_body_entered(body: Node) -> void:
-	hurt_sound.play()
+	if !invincible:
+		hurt_sound.play()
+		blinkAnimationPlayer.play("Start")
 	
-	if body is Bullet and !invincible:
-		emit_signal("hit", max(0.3, body.mass / 100))
-		PlayerStats.health -= body.damage
+		if body is Bullet:
+			emit_signal("hit", max(0.3, body.mass / 100))
+			PlayerStats.health -= body.damage
+		
+		if body is Enemy:
+			var _velocity = int(
+					(abs(linear_velocity.x) + abs(linear_velocity.y)) / 2
+				)
+			var _player_mass = mass
+			var _enemy_mass = body.mass
+			var _collision_damage = _velocity * _enemy_mass / _player_mass / 200
 	
-	if body is Enemy:
-		var _velocity = int(
-				(abs(linear_velocity.x) + abs(linear_velocity.y)) / 2
-			)
-		var _player_mass = mass
-		var _enemy_mass = body.mass
-		var _collision_damage = _velocity * _enemy_mass / _player_mass / 200
-		
-		emit_signal("hit", max(0.3, _collision_damage / 20))
-		print(_collision_damage / 20)
-		
-		if !invincible:
+			emit_signal("hit", max(0.3, _collision_damage / 20))
 			PlayerStats.health -= _collision_damage

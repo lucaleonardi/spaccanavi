@@ -1,15 +1,5 @@
 extends Node
 
-# obiettivo: creare un sistema a ondate, per cui il giocatore inizia all'ondata 1
-# e spawnano tot nemici. uccidendo i nemici, la barra dell'ondata si riempie e 
-# quando arriva al massimo si passa all'ondata 2. ripetere a tempo indeterminato :)
-
-# come ottenere questa cosa:
-# 1. avere una struttura per cui il gioco sa a che ondata si trova
-# 2. quando un nemico viene ucciso, il barra dell'ondata deve aumentare
-# 3. quando arriva al massimo, passa all'ondata successiva
-# 4. ripetere :)
-
 signal wave_fill_change
 signal wave_completed
 

@@ -6,7 +6,7 @@ const _chaser = Preload.ENEMY.CHASER
 
 const enemies = {
 	0 : {
-		actor = preload(_hexagon),
+		actor = preload(_tank),
 		probability = 0.5,
 	},
 	1 : {
@@ -14,7 +14,7 @@ const enemies = {
 		probability = 0.3,
 	},
 	2 : {
-		actor = preload(_chaser),
+		actor = preload(_tank),
 		probability = 0.2,
 	},
 }

@@ -20,7 +20,7 @@ mass = 50.0
 angular_damp = 4.0
 script = ExtResource( 3 )
 speed = 10.0
-wave_points = 200
+wave_points = 150
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 27.4056, 0 )
