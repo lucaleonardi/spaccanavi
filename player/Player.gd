@@ -46,12 +46,15 @@ func _process(delta):
 	input_vector = get_input()
 
 func _physics_process(delta):
-	hitbox.rotation = raycast.rotation + PI/2	
-	raycast.rotation = lerp_angle(raycast.rotation, get_angle_to(get_global_mouse_position()), spin_thrust)	
+	hitbox.rotation = raycast.rotation + PI/2
+	raycast.rotation = lerp_angle(raycast.rotation, get_angle_to(get_global_mouse_position()), spin_thrust * 1/Engine.time_scale)
 	
-	set_applied_force(input_vector * engine_thrust)
+	max_actual_speed = max_speed * 1/Engine.time_scale
+	
+	set_applied_force(input_vector * engine_thrust * 1/Engine.time_scale)
 	linear_velocity.x = clamp(linear_velocity.x, -max_actual_speed, max_actual_speed)
 	linear_velocity.y = clamp(linear_velocity.y, -max_actual_speed, max_actual_speed)
+	print(linear_velocity)
 	
 	if Input.is_action_just_pressed("activate_pickup") and has_pickup and ability_has_finished:
 		activate_pickup(ability_type)
@@ -66,21 +69,23 @@ func get_input() -> Vector2:
 			Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 		).normalized()
 
+
 func activate_pickup(Ability) -> void:
 	has_pickup = false
 	# NOTE: actually I think that a player can use multiple abilities at once
 	ability_has_finished = false
 	
 	var ability = Ability.instance()
+	ability.connect("ability_finished", self, "disable_pickup")
 	add_child(ability)
 
-	yield(get_tree().create_timer(5.0), "timeout")
-	
-	ability.disable()
+func disable_pickup() -> void:
 	ability_has_finished = true
+
 
 func death() -> void:
 	queue_free()
+	AudioManager.filter_out()
 	var death_effect: CPUParticles2D = DeathEffect.instance()
 	death_effect.connect("effect_finished", death_effect, "queue_free")
 	death_effect.global_position = global_position

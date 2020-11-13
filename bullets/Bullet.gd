@@ -7,6 +7,8 @@ onready var sound_effect: AudioStreamPlayer = $SoundEffect
 
 signal hit
 
+func _ready() -> void:
+	sound_effect.pitch_scale *= Engine.time_scale
 
 func destroy() -> void:
 	queue_free()

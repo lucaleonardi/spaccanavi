@@ -7,7 +7,8 @@ export (Texture) var texture
 signal picked_up
 
 func _ready() -> void:
-	$Sprite.texture = texture
+	$Type.texture = texture
+	$RotatingOutline.play('start')
 
 
 func _on_PickupArea_body_entered(body: Node) -> void:

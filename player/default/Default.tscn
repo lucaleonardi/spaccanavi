@@ -4,6 +4,7 @@
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 
 [node name="Default" instance=ExtResource( 2 )]
+modulate = Color( 0.956863, 0.956863, 0.972549, 1 )
 health = 50
 
 [node name="Sprite" parent="ShootingDirection" index="0"]

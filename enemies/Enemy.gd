@@ -11,6 +11,7 @@ const DeathEffect := preload(effect_path)
 
 onready var player = get_tree().root.get_node("World/Player/Default")
 onready var stats: Node = $Stats
+onready var enabler: VisibilityEnabler2D = $VisibilityEnabler2D
 
 var direction := Vector2.ZERO
 var distance_to_player := 0.0

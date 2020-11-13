@@ -14,7 +14,7 @@ height = 54.0
 radius = 13.887
 
 [node name="Tank" instance=ExtResource( 1 )]
-modulate = Color( 0.235294, 1, 0.964706, 1 )
+modulate = Color( 0.0235294, 0.839216, 0.627451, 1 )
 collision_layer = 4
 mass = 50.0
 angular_damp = 4.0

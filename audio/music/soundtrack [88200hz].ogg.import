@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/soundtrack [88200hz].ogg-dc232af7c16b65b3517ef26c337201d3.oggstr"
+
+[deps]
+
+source_file="res://audio/music/soundtrack [88200hz].ogg"
+dest_files=[ "res://.import/soundtrack [88200hz].ogg-dc232af7c16b65b3517ef26c337201d3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=73.49

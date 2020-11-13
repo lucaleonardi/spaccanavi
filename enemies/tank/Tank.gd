@@ -13,8 +13,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if get_tree().root.get_node("World/Player").has_node("Default"):
 		chase_player()
-		look_at(player.global_position)
-		
+		rotation = lerp_angle(rotation, get_angle_to(player.global_position) + rotation, pow(Engine.time_scale, 3))
+
 		if raycast.is_colliding():
 			if raycast.get_collider() is Player:
 				shooting()

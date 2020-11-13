@@ -5,3 +5,4 @@
 
 [node name="EnemySpawner" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+spawn_speed = 2.0

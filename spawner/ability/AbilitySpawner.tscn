@@ -5,7 +5,7 @@
 
 [node name="AbilitiesSpawner" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-spawn_speed = 10.0
+spawn_speed = 6.0
 
 [node name="SpawnPoints" parent="." index="1"]
 scale = Vector2( 3, 3 )

@@ -1,15 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/fonts/Futura Heavy font.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://UI/Buttons/QuitBtn.gd" type="Script" id=2]
-[ext_resource path="res://UI/Buttons/ChangeSceneBtn.gd" type="Script" id=3]
+[ext_resource path="res://UI/Buttons/ChangeSceneBtn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Buttons/QuitBtn.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 32
 font_data = ExtResource( 1 )
 
 [node name="Menu" type="Control"]
@@ -59,28 +55,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayBtn" type="Button" parent="Buttons"]
-margin_right = 395.0
-margin_bottom = 83.0
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
-text = "Play"
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-next_scene_path = "res://World.tscn"
+[node name="PlayBtn" parent="Buttons" instance=ExtResource( 2 )]
 
-[node name="QuitBtn" type="Button" parent="Buttons"]
-margin_top = 87.0
-margin_right = 395.0
-margin_bottom = 170.0
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
-text = "Quit"
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="button_up" from="Buttons/PlayBtn" to="Buttons/PlayBtn" method="_on_button_up"]
-[connection signal="button_up" from="Buttons/QuitBtn" to="Buttons/QuitBtn" method="_on_button_up"]
+[node name="QuitBtn" parent="Buttons" instance=ExtResource( 3 )]

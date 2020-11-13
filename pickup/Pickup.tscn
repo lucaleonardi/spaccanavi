@@ -1,12 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://pickup/Pickup.gd" type="Script" id=1]
+[ext_resource path="res://assets/abilities/ability_body.png" type="Texture" id=2]
+[ext_resource path="res://assets/abilities/ability_outline_1.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 70.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 23.0
+radius = 42.4264
+
+[sub_resource type="Animation" id=3]
+resource_name = "start"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Outline:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
 
 [node name="Pickup" type="RigidBody2D"]
 collision_layer = 8
@@ -21,10 +40,23 @@ script = ExtResource( 1 )
 modulate = Color( 1, 1, 0.47451, 1 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Body" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="Outline" type="Sprite" parent="."]
+rotation = 1.38763
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+
+[node name="Type" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
 
 [node name="PickupArea" type="Area2D" parent="."]
 
 [node name="PickupCollision" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource( 2 )
+
+[node name="RotatingOutline" type="AnimationPlayer" parent="."]
+anims/start = SubResource( 3 )
 [connection signal="body_entered" from="PickupArea" to="." method="_on_PickupArea_body_entered"]

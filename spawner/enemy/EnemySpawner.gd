@@ -6,7 +6,7 @@ const _chaser = Preload.ENEMY.CHASER
 
 const enemies = {
 	0 : {
-		actor = preload(_tank),
+		actor = preload(_hexagon),
 		probability = 0.5,
 	},
 	1 : {
@@ -14,12 +14,13 @@ const enemies = {
 		probability = 0.3,
 	},
 	2 : {
-		actor = preload(_tank),
+		actor = preload(_chaser),
 		probability = 0.2,
 	},
 }
 
 func _on_SpawnTimer_timeout() -> void:
-	var enemy = enemies[random_element(enemies)].actor.instance()
-	enemy.global_position = spawn_points.get_child(random_point()).global_position
-	get_tree().root.get_node("World/Enemies").add_child(enemy)
+	if active:
+		var enemy = enemies[random_element(enemies)].actor.instance()
+		enemy.global_position = spawn_points.get_child(random_point()).global_position
+		get_tree().root.get_node("World/Enemies").add_child(enemy)

@@ -9,8 +9,10 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0512
 
-[node name="Hexagon" instance=ExtResource( 3 )]
-modulate = Color( 1, 0, 0, 1 )
+[node name="Hexagon" groups=[
+"hexagon",
+] instance=ExtResource( 3 )]
+modulate = Color( 0.937255, 0.278431, 0.435294, 1 )
 collision_layer = 4
 mass = 500.0
 angular_velocity = 2.0
