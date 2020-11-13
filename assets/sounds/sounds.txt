@@ -1,0 +1,13 @@
+	- enemy death (explosion)
+	- player death 
+~ enemy damage 
+	- player damage
+~ moving 
+	- chaser moving
+- new wave (healthbar refill?)
+- ability activation
+- ability pickup
+- gun pickup
+- gun shooting (bullets sound)
+- menu options
+- menu selection

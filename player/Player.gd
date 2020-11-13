@@ -54,7 +54,6 @@ func _physics_process(delta):
 	set_applied_force(input_vector * engine_thrust * 1/Engine.time_scale)
 	linear_velocity.x = clamp(linear_velocity.x, -max_actual_speed, max_actual_speed)
 	linear_velocity.y = clamp(linear_velocity.y, -max_actual_speed, max_actual_speed)
-	print(linear_velocity)
 	
 	if Input.is_action_just_pressed("activate_pickup") and has_pickup and ability_has_finished:
 		activate_pickup(ability_type)
