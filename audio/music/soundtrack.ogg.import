@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/soundtrack.ogg-3b01e63253e4e1611ca5f7e4e36a3fc4.oggstr"
+path="res://.import/soundtrack [88200hz].ogg-dc232af7c16b65b3517ef26c337201d3.oggstr"
 
 [deps]
 
-source_file="res://audio/music/soundtrack.ogg"
-dest_files=[ "res://.import/soundtrack.ogg-3b01e63253e4e1611ca5f7e4e36a3fc4.oggstr" ]
+source_file="res://audio/music/soundtrack [88200hz].ogg"
+dest_files=[ "res://.import/soundtrack [88200hz].ogg-dc232af7c16b65b3517ef26c337201d3.oggstr" ]
 
 [params]
 
 loop=true
-loop_offset=73.5
+loop_offset=73.49

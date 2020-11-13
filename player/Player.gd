@@ -32,7 +32,7 @@ var has_pickup := false
 var ability_has_finished := true
 var ability_type: PackedScene
 
-signal hit
+signal shake_camera
 
 
 func _ready() -> void:
@@ -104,7 +104,7 @@ func _on_Player_body_entered(body: Node) -> void:
 		blinkAnimationPlayer.play("Start")
 	
 		if body is Bullet:
-			emit_signal("hit", max(0.3, body.mass / 100))
+			emit_signal("shake_camera", max(0.3, body.mass / 100))
 			PlayerStats.health -= body.damage
 		
 		if body is Enemy:
@@ -115,5 +115,5 @@ func _on_Player_body_entered(body: Node) -> void:
 			var _enemy_mass = body.mass
 			var _collision_damage = _velocity * _enemy_mass / _player_mass / 200
 	
-			emit_signal("hit", max(0.3, _collision_damage / 20))
+			emit_signal("shake_camera", max(0.3, _collision_damage / 20))
 			PlayerStats.health -= _collision_damage

@@ -27,7 +27,7 @@ func _ready() -> void:
 		limit_right = bottomRight.position.x
 	
 	player = get_tree().root.get_node("World/Player/Default")
-	player.connect("hit", self, "add_trauma")
+	player.connect("shake_camera", self, "add_trauma")
 	
 	randomize()
 	noise.seed = randi()

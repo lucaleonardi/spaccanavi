@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://audio/AudioManager.gd" type="Script" id=1]
-[ext_resource path="res://audio/music/soundtrack [88200hz].ogg" type="AudioStream" id=2]
+[ext_resource path="res://audio/music/soundtrack.ogg" type="AudioStream" id=2]
 [ext_resource path="res://audio/music/menu.ogg" type="AudioStream" id=3]
 
 [node name="AudioManager" type="Node"]

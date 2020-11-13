@@ -20,11 +20,13 @@ const ENEMY := {
 const ABILITY := {
 	SHIELD = "res://abilities/shield/Shield.tscn",
 	SLOW_MOTION = "res://abilities/slow_motion/SlowMotion.tscn",
+	LASERONE = "res://abilities/LASERONE/LASERONE.tscn",
 }
 
 const SPRITE := {
 	ABILITY = {
 		SHIELD = "res://assets/abilities/shield/AB_shield.png",
 		SLOW_MOTION = "res://assets/abilities/slow_motion/AB_clock.png",
+		LASERONE = "res://assets/abilities/LASERONE/Begin.png",
 	}
 }
