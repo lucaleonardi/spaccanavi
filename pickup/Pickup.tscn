@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://pickup/Pickup.gd" type="Script" id=1]
 [ext_resource path="res://assets/abilities/ability_body.png" type="Texture" id=2]
@@ -27,6 +27,9 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 128.0
+
 [node name="Pickup" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 8
@@ -34,7 +37,9 @@ mode = 2
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
+linear_damp = 2.0
 script = ExtResource( 1 )
+attraction = 500
 
 [node name="DistancingCollision" type="CollisionShape2D" parent="."]
 modulate = Color( 1, 1, 0.47451, 1 )
@@ -53,10 +58,19 @@ texture = ExtResource( 3 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="PickupCollision" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource( 2 )
 
 [node name="RotatingOutline" type="AnimationPlayer" parent="."]
 anims/start = SubResource( 3 )
+
+[node name="MagnetArea" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="MagnetCollision" type="CollisionShape2D" parent="MagnetArea"]
+shape = SubResource( 4 )
 [connection signal="body_entered" from="PickupArea" to="." method="_on_PickupArea_body_entered"]
+[connection signal="body_entered" from="MagnetArea" to="." method="_on_MagnetArea_body_entered"]
+[connection signal="body_exited" from="MagnetArea" to="." method="_on_MagnetArea_body_exited"]

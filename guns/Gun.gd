@@ -1,4 +1,5 @@
 extends Position2D
+class_name Gun
 
 const bullet_path: String = Preload.BULLET.PLASMA
 const effect_path: String = Preload.EFFECT.HIT

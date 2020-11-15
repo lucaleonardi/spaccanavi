@@ -28,7 +28,6 @@ var invincible := false
 var max_actual_speed = max_speed
 var actual_speed := Vector2.ZERO
 
-var has_pickup := false
 var ability_has_finished := true
 var ability_type: PackedScene
 
@@ -55,7 +54,7 @@ func _physics_process(delta):
 	linear_velocity.x = clamp(linear_velocity.x, -max_actual_speed, max_actual_speed)
 	linear_velocity.y = clamp(linear_velocity.y, -max_actual_speed, max_actual_speed)
 	
-	if Input.is_action_just_pressed("activate_pickup") and has_pickup and ability_has_finished:
+	if Input.is_action_just_pressed("activate_pickup") and PlayerStats.has_pickup and ability_has_finished:
 		activate_pickup(ability_type)
 	
 	if Input.is_action_pressed("shoot") and shooting_cooldown.is_stopped():
@@ -68,13 +67,14 @@ func get_input() -> Vector2:
 			Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 		).normalized()
 
+var node_path = ''
 
-func activate_pickup(Ability) -> void:
-	has_pickup = false
+func activate_pickup(Ability) -> void:	
+	PlayerStats.has_pickup = false
 	# NOTE: actually I think that a player can use multiple abilities at once
 	ability_has_finished = false
-	
-	var ability = Ability.instance()
+
+	var	ability = Ability.instance()
 	ability.connect("ability_finished", self, "disable_pickup")
 	add_child(ability)
 
@@ -95,7 +95,7 @@ func death() -> void:
 	get_parent().add_child(death_effect)
 
 func is_picked(Ability) -> void:
-	has_pickup = true
+	PlayerStats.has_pickup = true
 	ability_type = Ability
 
 func _on_Player_body_entered(body: Node) -> void:

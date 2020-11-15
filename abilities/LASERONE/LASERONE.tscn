@@ -59,6 +59,7 @@ offset = Vector2( 0, -12 )
 region_rect = Rect2( 0, 0, 100, 24 )
 
 [node name="End" type="Position2D" parent="."]
+visible = false
 position = Vector2( 112.05, 0.0497389 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="End"]
@@ -76,7 +77,7 @@ position = Vector2( 12.0497, 0.0497389 )
 scale = Vector2( 1, 12 )
 enabled = true
 cast_to = Vector2( 666, 0 )
-collision_mask = 4
+collision_mask = 6
 
 [node name="Timer" type="Timer" parent="."]
 

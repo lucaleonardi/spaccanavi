@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://git_api.gdns"
 }, {
+"base": "Position2D",
+"class": "Gun",
+"language": "GDScript",
+"path": "res://guns/Gun.gd"
+}, {
 "base": "RigidBody2D",
 "class": "Pickup",
 "language": "GDScript",
@@ -54,6 +59,7 @@ _global_script_class_icons={
 "Bullet": "",
 "Enemy": "",
 "GitAPI": "",
+"Gun": "",
 "Pickup": "",
 "Player": "",
 "Spawner": "",

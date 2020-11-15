@@ -18,24 +18,31 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	player.shooting_cooldown.wait_time = _player_shooting_cooldown / (1 / Engine.time_scale)
-	player.linear_damp = _player_linear_damp / (1 / Engine.time_scale)
+	player.linear_damp = _player_linear_damp / (1 / sqrt(Engine.time_scale))
 
 
 func _ready() -> void:
-	timer.start(duration)
 	timer.connect("timeout", self, "disable")
+	
 	_player_shooting_cooldown = player.shooting_cooldown.wait_time
 	_player_linear_damp = player.linear_damp
 	
-	tween_slow.start()
-	tween_slow.interpolate_property(
-		Engine, 
-		"time_scale", 
-		null, 
-		Engine.time_scale / slomo_value, 
-		_tween_duration, 
-		tween_slow.TRANS_QUINT, 
-		tween_slow.EASE_OUT)
+	activate()
+	
+
+func activate() -> void:
+	timer.start(duration)
+	
+	if !tween_slow.is_active():
+		tween_slow.start()
+		tween_slow.interpolate_property(
+			Engine, 
+			"time_scale", 
+			null, 
+			Engine.time_scale / slomo_value, 
+			_tween_duration, 
+			tween_slow.TRANS_QUINT, 
+			tween_slow.EASE_OUT)
 
 func disable() -> void:
 	tween_speed.start()

@@ -65,6 +65,7 @@ rotation = 1.57079
 [node name="Gun" parent="ShootingDirection" instance=ExtResource( 3 )]
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]
+visible = false
 rotation = 1.57079
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="."]
