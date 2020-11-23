@@ -38,7 +38,8 @@ func _ready() -> void:
 	PlayerStats.max_health = health
 	PlayerStats.health = health
 	PlayerStats.connect("no_health", self, "death")
-	
+	PlayerStats.has_pickup = false
+
 	gun.bullet_group = "player"
 
 func _process(delta):

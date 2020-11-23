@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://enemies/hexagon/hexagon.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemies/hexagon.png" type="Texture" id=1]
 [ext_resource path="res://enemies/hexagon/Hexagon.gd" type="Script" id=2]
 [ext_resource path="res://enemies/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=4]
@@ -14,7 +14,7 @@ radius = 28.0512
 ] instance=ExtResource( 3 )]
 modulate = Color( 0.937255, 0.278431, 0.435294, 1 )
 collision_layer = 4
-mass = 500.0
+mass = 400.0
 angular_velocity = 2.0
 angular_damp = 0.0
 script = ExtResource( 2 )
@@ -22,6 +22,7 @@ speed = 50.0
 wave_points = 100
 
 [node name="Sprite" parent="." index="0"]
+rotation = 0.0
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
