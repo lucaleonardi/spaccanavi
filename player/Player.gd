@@ -73,7 +73,6 @@ var node_path = ''
 
 func activate_pickup(Ability) -> void:	
 	PlayerStats.has_pickup = false
-	# NOTE: actually I think that a player can use multiple abilities at once
 	ability_has_finished = false
 
 	var	ability = Ability.instance()
