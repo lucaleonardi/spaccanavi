@@ -13,6 +13,7 @@ export (int) var health = 100
 
 onready var hitbox: CollisionPolygon2D = $Hitbox
 onready var raycast: RayCast2D = $ShootingDirection
+onready var sprite: Sprite = $ShootingDirection/Sprite
 onready var gun: Position2D = $ShootingDirection/Gun
 onready var shooting_cooldown: Timer = $ShootingDirection/Gun/Cooldown
 

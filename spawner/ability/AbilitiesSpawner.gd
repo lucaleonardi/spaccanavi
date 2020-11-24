@@ -8,24 +8,27 @@ const _slow_motion = Preload.ABILITY.SLOW_MOTION
 const _slow_motion_sprite = Preload.SPRITE.ABILITY.SLOW_MOTION
 const _LASERONE = Preload.ABILITY.LASERONE
 const _LASERONE_sprite = Preload.SPRITE.ABILITY.LASERONE
+const _you_are_the_bullet = Preload.ABILITY.YOU_ARE_THE_BULLET
+const _you_are_the_bullet_sprite = Preload.SPRITE.ABILITY.YOU_ARE_THE_BULLET
 
 onready var PickupScene = preload(_pickup)
 
 const abilities = {
+#	0 : {
+#		item = preload(_shield),
+#		sprite = preload(_shield_sprite),
+#	},
+#	1 : {
+#		item = preload(_slow_motion),
+#		sprite = preload(_slow_motion_sprite),
+#	},
+#	2 : {
+#		item = preload(_LASERONE),
+#		sprite = preload(_LASERONE_sprite),
+#	},
 	0 : {
-		item = preload(_shield),
-		sprite = preload(_shield_sprite),
-		probability = 0.5,
-	},
-	1 : {
-		item = preload(_slow_motion),
-		sprite = preload(_slow_motion_sprite),
-		probability = 0.5,
-	},
-	2 : {
-		item = preload(_LASERONE),
-		sprite = preload(_LASERONE_sprite),
-		probability = 0.5,
+		item = preload(_you_are_the_bullet),
+		sprite = preload(_you_are_the_bullet_sprite),
 	},
 }
 

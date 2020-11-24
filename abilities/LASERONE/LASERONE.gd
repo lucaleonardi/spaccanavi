@@ -22,7 +22,7 @@ func _ready() -> void:
 #	beam.region_rect.end.x = end.global_position.length()
 	
 	player.shooting_cooldown.paused = true
-	get_parent().linear_damp = 2
+	player.linear_damp = 2
 	
 	timer.connect("timeout", self, "disable")
 	activate()
@@ -36,8 +36,7 @@ func disable() -> void:
 	player.shooting_cooldown.stop()
 	
 	set_physics_process(false)
-#	if Engine.time_scale < 1:
-	get_parent().linear_damp = 0.5
+	player.linear_damp = 0.5
 		
 	emit_signal("ability_finished")
 	queue_free()
@@ -51,8 +50,8 @@ func _physics_process(delta: float) -> void:
 		
 		collider_body = rayCast2D.get_collider()
 		if collider_body is Enemy:
-			collider_body.stats.health -= damage
 			collider_body._is_hit_by_player = true
+			collider_body.stats.health -= damage
 		else:
 			collider_body.queue_free()
 	else:

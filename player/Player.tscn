@@ -9,7 +9,7 @@
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 4 )
-shader_param/active = false
+shader_param/active = true
 
 [sub_resource type="Animation" id=3]
 resource_name = "Start"

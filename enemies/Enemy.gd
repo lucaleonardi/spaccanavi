@@ -29,12 +29,12 @@ func chase_player() -> void:
 
 func _on_Enemy_body_entered(body: Node) -> void:
 	if body is Bullet:
-		stats.health -= body.damage
-				
 		if body.is_in_group("enemy"):
 			_is_hit_by_player = false
 		elif body.is_in_group("player"):
 			_is_hit_by_player = true
+				
+		stats.health -= body.damage
 
 func _on_Stats_no_health() -> void: 
 	if _is_hit_by_player:
