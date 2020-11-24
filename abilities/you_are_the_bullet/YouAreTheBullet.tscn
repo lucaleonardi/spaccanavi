@@ -35,7 +35,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = SubResource( 5 )
-shader_param/active = true
+shader_param/active = false
 
 [sub_resource type="Animation" id=7]
 length = 3.0

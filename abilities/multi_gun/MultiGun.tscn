@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://abilities/multi_gun/MultiGun.gd" type="Script" id=3]
+
+[node name="MultiGun" type="RayCast2D"]
+cast_to = Vector2( 50, 0 )
+script = ExtResource( 3 )
+duration = 16.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Gun1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, 0 )
+
+[node name="Gun2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 39.7018, 4.87477 )
+rotation = 1.69297
+
+[node name="Gun3" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 38.8118, 9.67688 )
+rotation = 1.81515
+
+[node name="Gun4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 37.3432, 14.3347 )
+rotation = 1.93732
+
+[node name="Gun5" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 35.3179, 18.7789 )
+rotation = 2.05949
+
+[node name="Gun7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 39.7018, -4.87477 )
+rotation = 1.44863
+
+[node name="Gun8" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 38.8118, -9.67688 )
+rotation = 1.32645
+
+[node name="Gun9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 37.3432, -14.3347 )
+rotation = 1.20428
+
+[node name="Gun10" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 35.3179, -18.7789 )
+rotation = 1.08211
+
+[editable path="Gun2"]

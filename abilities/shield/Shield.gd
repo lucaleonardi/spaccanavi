@@ -1,8 +1,7 @@
 extends Ability
 
 onready var timer: Timer = $Timer
-
-var player = get_parent()
+onready var player = get_parent()
 
 func _ready() -> void:
 	timer.connect("timeout", self, "disable")

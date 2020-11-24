@@ -5,7 +5,6 @@
 
 [node name="AbilitiesSpawner" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-active = null
 spawn_speed = 6.0
 
 [node name="SpawnPoints" parent="." index="1"]
