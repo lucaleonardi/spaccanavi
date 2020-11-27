@@ -44,7 +44,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WaveBox" parent="GameUI" instance=ExtResource( 3 )]
+[node name="WaveHandler" parent="GameUI" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 480.0
+margin_top = 48.0
+margin_right = 880.0
+margin_bottom = 114.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GameUI"]
 margin_left = 375.0
@@ -143,7 +151,7 @@ __meta__ = {
 
 [node name="RetryBtn" type="Button" parent="PauseOverlay/Options"]
 margin_right = 296.0
-margin_bottom = 64.0
+margin_bottom = 98.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "Retry"
@@ -153,14 +161,17 @@ __meta__ = {
 }
 
 [node name="MenuBtn" parent="PauseOverlay/Options" instance=ExtResource( 5 )]
-margin_top = 68.0
+margin_top = 102.0
 margin_right = 296.0
-margin_bottom = 132.0
+margin_bottom = 200.0
 text = "Menu"
 next_scene_path = "res://main_menu/MainMenu.tscn"
 
 [node name="QuitBtn" parent="PauseOverlay/Options" instance=ExtResource( 6 )]
+visible = false
 margin_top = 136.0
 margin_right = 296.0
 margin_bottom = 200.0
 [connection signal="button_up" from="PauseOverlay/Options/RetryBtn" to="PauseOverlay/Options/RetryBtn" method="_on_button_up"]
+
+[editable path="GameUI/WaveHandler"]

@@ -5,8 +5,8 @@ var HitEffect = preload(hit_effect_path)
 
 export (float) var damage = 10
 
-onready var shooting_cooldown: Timer = $ShootingCooldown
 onready var shot_fx: AudioStreamPlayer2D = $Shot
+onready var tween: Tween = $Tween
 
 onready var raycast: RayCast2D = $RayCast2D
 onready var beam: Sprite = $Beam
@@ -14,6 +14,10 @@ onready var end: Position2D = $End
 
 var collider_body
 var original_end_position: Vector2
+var color_out_of_sight := Color(1.0, 1.0, 0.0, 0.5) # a = 0.625
+#var color_on_sight := Color(1.0, 0.0, 0.0, 1) #(893, 0, 0, 0.625)
+var shooting_cooldown := 0.0
+
 
 func _ready() -> void:
 	original_end_position = end.position
@@ -29,15 +33,26 @@ func _physics_process(delta: float) -> void:
 			end.global_position = raycast.get_collision_point()
 			
 			collider_body = raycast.get_collider()
-			if collider_body is Player and shooting_cooldown.is_stopped():
-				create_hit_effect(player.modulate, raycast.get_collision_point(), global_position.direction_to(player.global_position))
-				shot_fx.play()
-				shooting_cooldown.start()
+			if collider_body is Player:
+				if shooting_cooldown < 1.0:
+					shooting_cooldown += 0.0125
+
+				beam.set_modulate(Color(1.0, 1.0 - shooting_cooldown, 0.0, shooting_cooldown))
 				
-				if !collider_body.invincible:
-					PlayerStats.health -= damage
-					player.blinkAnimationPlayer.play("Start")
+				if shooting_cooldown >= 1.0:
+					create_hit_effect(player.modulate, raycast.get_collision_point(), global_position.direction_to(player.global_position))
+					shot_fx.play()
+					shooting_cooldown = 0
+
+					if !collider_body.invincible:
+						PlayerStats.health -= damage
+						player.blinkAnimationPlayer.play("Start")
+			else:
+				shooting_cooldown = 0.0
+				beam.set_modulate(color_out_of_sight)
 		else:
+			shooting_cooldown = 0.0
+			beam.set_modulate(color_out_of_sight)
 			end.position = original_end_position
 		
 	else:

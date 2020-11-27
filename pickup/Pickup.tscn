@@ -28,7 +28,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 128.0
+radius = 228.14
 
 [node name="Pickup" type="RigidBody2D"]
 collision_layer = 8

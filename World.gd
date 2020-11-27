@@ -5,5 +5,6 @@ func _ready() -> void:
 
 func init() -> void:
 	Engine.time_scale = 1
+	WaveManager.initialize()
 	AudioManager.initialize()
 	AudioManager.play('main')

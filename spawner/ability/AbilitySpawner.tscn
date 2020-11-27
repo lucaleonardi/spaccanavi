@@ -8,4 +8,4 @@ script = ExtResource( 1 )
 spawn_speed = 6.0
 
 [node name="SpawnPoints" parent="." index="1"]
-scale = Vector2( 3, 3 )
+scale = Vector2( 2.5, 2.5 )

@@ -49,6 +49,7 @@ volume_db = -6.0
 
 [node name="AbilitiesSpawner" parent="Player/Default" instance=ExtResource( 7 )]
 rotation = 0.307178
+spawn_speed = 5.0
 
 [node name="RemoteCamera" type="RemoteTransform2D" parent="Player/Default"]
 remote_path = NodePath("../../ShakerCamera2D")

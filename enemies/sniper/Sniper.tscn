@@ -17,14 +17,14 @@ radius = 57.0
 
 [node name="Sniper" instance=ExtResource( 1 )]
 modulate = Color( 0.188235, 0.741176, 0.941176, 1 )
+position = Vector2( 28, -57 )
 collision_layer = 4
 mass = 1000.0
 angular_damp = 4.0
 script = ExtResource( 7 )
-wave_points = 250
 
 [node name="Beam" type="Sprite" parent="." index="0"]
-self_modulate = Color( 2.31, 0, 0, 1 )
+self_modulate = Color( 4.01176, 1, 0, 1 )
 material = SubResource( 1 )
 position = Vector2( 0, -2 )
 texture = ExtResource( 4 )
@@ -53,6 +53,7 @@ shape = SubResource( 3 )
 max_health = 120
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="5"]
+visible = false
 enabled = true
 cast_to = Vector2( 2000, 0 )
 collision_mask = 5
@@ -62,11 +63,8 @@ visible = false
 position = Vector2( -1526.17, -833.833 )
 scale = Vector2( 4.91667, 4.91667 )
 
-[node name="ShootingCooldown" type="Timer" parent="." index="7"]
-wait_time = 4.0
-one_shot = true
-autostart = true
-
-[node name="Shot" type="AudioStreamPlayer" parent="." index="8"]
+[node name="Shot" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="." index="8"]
 [connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_player_out_of_sight"]

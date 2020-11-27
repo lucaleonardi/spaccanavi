@@ -13,7 +13,7 @@ func _ready() -> void:
 		spawn_timer.start(spawn_speed)
 
 func random_element(element_list: Dictionary) -> int:
-	return randi() % int(clamp(WaveManager.current_wave + 2, 0, element_list.size()))
+	return randi() % element_list.size()
 
 func random_point() -> int:
 	return randi() % spawn_points.get_child_count()

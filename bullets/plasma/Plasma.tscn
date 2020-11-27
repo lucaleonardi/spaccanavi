@@ -24,4 +24,22 @@ shape = SubResource( 1 )
 
 [node name="SoundEffect" parent="." index="3"]
 stream = SubResource( 2 )
+volume_db = -14.0
 autoplay = true
+bus = "Comp"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource( 3 )
+volume_db = -14.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource( 3 )
+volume_db = -14.0
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource( 3 )
+volume_db = -14.0
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource( 3 )
+volume_db = -14.0

@@ -68,7 +68,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Space Shooter"
+config/name="Spaccanavi"
 run/main_scene="res://main_menu/MainMenu.tscn"
 config/icon="res://icon.png"
 
