@@ -5,6 +5,8 @@ It's a 2D top-down bullet-hell shooter with endless waves of enemies: the object
 I worked on this project for something like 3-4 months and, even tho could be expanded indefinitely, I think it's time to move on and work on something new :D
 being my first game, it isn't as good as it could be; there are a lot of optimization opportunities and many more features that could be implemented, some of them at the end of this readme.
 
+
+
 You can play the game here:
 https://luxel.itch.io/spaccanavi
 
@@ -19,7 +21,9 @@ More Enemies!
 
 [...]
 
+
 More Guns!
+
 It would be very cool to add different types of pickupable weapons. Some ideas:
 - Shotgun
 - Sniper
@@ -27,7 +31,9 @@ It would be very cool to add different types of pickupable weapons. Some ideas:
 
 [...]
 
+
 More Bullets!
+
 Another cool ideas was to synergize different guns with different bullets type! Each one with unique characteristics. Some ideas:
 - Boomerang (returns back to the player)
 - Mines (stops in the spce and explodes when an enemy passes by)
@@ -35,10 +41,14 @@ Another cool ideas was to synergize different guns with different bullets type! 
 
 [...]
 
+
 Damage types pickup!
+
 Incendiary bullets, explosives, freezing bullets or even charmers bullets! This could add so much more value to the gameplay.
-  
+
+
 More types of Player's spaceships!
+
 Initially I wanted to add different types of spaceships that the player could play with;
 The base spaceship has some parameters that can be tweaked, and this could lead to some interestings variations like:
 - More or less health
