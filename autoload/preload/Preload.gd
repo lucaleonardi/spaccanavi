@@ -18,6 +18,7 @@ const ENEMY := {
 	TANK = "res://enemies/tank/Tank.tscn",
 	CHASER = "res://enemies/chaser/ChaserGroup.tscn",
 	TRIANGLE = "res://enemies/triangle/Triangle.tscn",
+	AGGRESSIVE_CHASER = "res://enemies/aggressive_chaser/AggressiveChaser.tscn",
 	LITTLESTAR = "res://enemies/little_star/LittleStar.tscn",
 	SNIPER = "res://enemies/sniper/Sniper.tscn",
 }

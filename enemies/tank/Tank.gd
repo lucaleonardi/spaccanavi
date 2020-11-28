@@ -18,13 +18,9 @@ func _physics_process(delta: float) -> void:
 		if raycast.is_colliding():
 			if raycast.get_collider() is Player:
 				shooting()
-#		hitbox.rotation = raycast.rotation + PI
-#		raycast.rotation = lerp_angle(raycast.rotation, get_angle_to(player.global_position), 0.05)
 	
 
 func shooting() -> void:
-	# TODO: the second part of the if can be removed?
-	# the check is already made with "if raycast.get_collider() is Player"
 	if shooting_cooldown.is_stopped() and get_tree().root.get_node("World/Player").has_node("Default"):
 		gun.shoot(modulate, global_rotation, linear_velocity)
 		shooting_cooldown.start()

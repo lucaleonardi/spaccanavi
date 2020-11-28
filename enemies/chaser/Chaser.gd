@@ -9,14 +9,14 @@ func _physics_process(delta):
 		linear_damp = 2 / Engine.time_scale
 
 
-func _on_Chaser_body_entered(body: Node) -> void:
+func _on_Enemy_body_entered(body: Node) -> void:
 	if body is Bullet:
-		stats.health -= body.damage
-		
 		if body.is_in_group("enemy"):
 			_is_hit_by_player = false
 		elif body.is_in_group("player"):
 			_is_hit_by_player = true
+			
+		stats.health -= body.damage
 	
 	if body is Player:
 		stats.health = 0
