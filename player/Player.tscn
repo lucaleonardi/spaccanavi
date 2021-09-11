@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://sounds/player_hurt.wav" type="AudioStream" id=2]
 [ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=3]
 [ext_resource path="res://shaders/Damage.shader" type="Shader" id=4]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Buttons/PauseBtn.png" type="Texture" id=6]
+[ext_resource path="res://Joystick/joystick_handle.png" type="Texture" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -76,4 +79,85 @@ anims/Start = SubResource( 3 )
 anims/Stop = SubResource( 4 )
 
 [node name="AbilityTimer" type="Timer" parent="."]
+
+[node name="TouchControls" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="TouchControls"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 96
+custom_constants/margin_top = 96
+custom_constants/margin_left = 96
+custom_constants/margin_bottom = 96
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseButton" type="Control" parent="TouchControls/MarginContainer"]
+margin_left = 96.0
+margin_top = 96.0
+margin_right = 96.0
+margin_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Button" type="TouchScreenButton" parent="TouchControls/MarginContainer/PauseButton"]
+modulate = Color( 1, 1, 1, 0.556863 )
+scale = Vector2( 0.25, 0.25 )
+normal = ExtResource( 6 )
+action = "pause"
+
+[node name="JoystickLeft" parent="TouchControls/MarginContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_top = 600.0
+margin_right = 480.0
+margin_bottom = 984.0
+rect_min_size = Vector2( 384, 384 )
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="AimAndAbility" type="VBoxContainer" parent="TouchControls/MarginContainer"]
+margin_left = 1440.0
+margin_top = 384.0
+margin_right = 1824.0
+margin_bottom = 984.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_constants/separation = 24
+
+[node name="ActivateAbility" type="Control" parent="TouchControls/MarginContainer/AimAndAbility"]
+modulate = Color( 1, 1, 1, 0.556863 )
+margin_left = 192.0
+margin_right = 384.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 192, 192 )
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Button" type="TouchScreenButton" parent="TouchControls/MarginContainer/AimAndAbility/ActivateAbility"]
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 7 )
+action = "activate_pickup"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="JoystickRight" parent="TouchControls/MarginContainer/AimAndAbility" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 216.0
+margin_right = 384.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 384, 384 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]

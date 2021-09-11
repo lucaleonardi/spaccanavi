@@ -19,12 +19,12 @@ speed = 360.0
 wave_points = 40
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.675, 0.9 )
+scale = Vector2( 0.45, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2( -3, 0 )
-scale = Vector2( 2, 2 )
+scale = Vector2( 1.333, 1.333 )
 shape = SubResource( 1 )
 
 [node name="Stats" parent="." index="2"]

@@ -142,4 +142,5 @@ anims/Stop = SubResource( 8 )
 stream = ExtResource( 3 )
 volume_db = -18.0
 autoplay = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

@@ -1,15 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://enemies/chaser/Chaser.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/chaser/ChaserGroup.gd" type="Script" id=2]
 
 [node name="ChaserGroup" type="Node2D"]
-rotation = 1.5708
-
-[node name="Chaser" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.0640688, 11 )
-
-[node name="Chaser2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 16.7496, -7.0203 )
-
-[node name="Chaser3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -11, -8.7021 )
+script = ExtResource( 2 )

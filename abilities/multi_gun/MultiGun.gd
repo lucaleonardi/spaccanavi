@@ -34,7 +34,7 @@ func activate() -> void:
 func _physics_process(delta: float) -> void:
 	rotation = player.raycast.rotation
 	
-	if Input.is_action_pressed("shoot") and shooting_cooldown.is_stopped():
+	if shooting_cooldown.is_stopped():
 		gun2.shoot(player.modulate, rotation + deg2rad(7.0), player.linear_velocity) #positivo
 		gun4.shoot(player.modulate, rotation + deg2rad(21.0), player.linear_velocity) #positivo
 		gun7.shoot(player.modulate, rotation - deg2rad(7.0), player.linear_velocity) #negativo

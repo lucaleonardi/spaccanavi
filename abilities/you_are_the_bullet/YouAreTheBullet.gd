@@ -51,11 +51,5 @@ func disable() -> void:
 	player.shooting_cooldown.paused = false
 	player.shooting_cooldown.stop()
 	
-#	var death_effect: CPUParticles2D = DeathEffect.instance()
-#	death_effect.connect("effect_finished", death_effect, "queue_free")
-#	death_effect.scale_amount *= 2
-#	death_effect.emitting = true
-#	player.add_child(death_effect)
-	
 	emit_signal("ability_finished")
 	queue_free()

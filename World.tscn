@@ -65,5 +65,5 @@ drag_margin_v_enabled = true
 [node name="MousePointer" parent="GUI" instance=ExtResource( 9 )]
 
 [editable path="BackgroundLayer/ParallaxBackground"]
-
 [editable path="Player/Default"]
+[editable path="Player/Default/ShootingDirection/Gun"]

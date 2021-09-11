@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://pickup/Pickup.gd" type="Script" id=1]
 [ext_resource path="res://assets/abilities/ability_body.png" type="Texture" id=2]
 [ext_resource path="res://assets/abilities/ability_outline_1.png" type="Texture" id=3]
+[ext_resource path="res://utility/player_check/PlayerCheck.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 70.0
@@ -71,6 +72,11 @@ collision_layer = 8
 
 [node name="MagnetCollision" type="CollisionShape2D" parent="MagnetArea"]
 shape = SubResource( 4 )
+
+[node name="PlayerCheck" parent="." instance=ExtResource( 4 )]
+wait_time = 60.0
+allowed_distance = 2000.0
+
 [connection signal="body_entered" from="PickupArea" to="." method="_on_PickupArea_body_entered"]
 [connection signal="body_entered" from="MagnetArea" to="." method="_on_MagnetArea_body_entered"]
 [connection signal="body_exited" from="MagnetArea" to="." method="_on_MagnetArea_body_exited"]

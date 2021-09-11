@@ -37,11 +37,4 @@ func _on_Enemy_body_entered(body: Node) -> void:
 		stats.health -= body.damage
 			
 	if body is Player:
-		var _velocity = int(
-			(abs(linear_velocity.x) + abs(linear_velocity.y)) / 2
-		)
-		var _mass = mass
-		var _body_mass = body.mass
-		var _collision_damage = _velocity * _body_mass / _mass / 200
-		
-		stats.health -= _collision_damage
+		stats.health = 0

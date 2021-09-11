@@ -5,7 +5,7 @@ var HitEffect = preload(hit_effect_path)
 
 export (float) var damage = 10
 
-onready var shot_fx: AudioStreamPlayer2D = $Shot
+onready var shot_fx: AudioStreamPlayer = $Shot
 onready var tween: Tween = $Tween
 
 onready var raycast: RayCast2D = $RayCast2D
@@ -65,7 +65,6 @@ func _on_player_out_of_sight() -> void:
 
 func create_hit_effect(enemy_color: Color, hit_global_position: Vector2, hit_direction: Vector2) -> void:
 	var hit: CPUParticles2D = HitEffect.instance()
-	hit.connect("effect_finished", hit, "queue_free")
 	hit.global_position = hit_global_position
 	hit.set_direction(-hit_direction)
 	hit.set_emitting(true)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://stats/Stats.tscn" type="PackedScene" id=2]
+[ext_resource path="res://utility/player_check/PlayerCheck.tscn" type="PackedScene" id=3]
 
 [node name="Enemy" type="RigidBody2D" groups=[
 "enemy",
@@ -31,5 +32,9 @@ physics_process_parent = true
 __meta__ = {
 "_editor_description_": "q"
 }
+
+[node name="PlayerCheck" parent="." instance=ExtResource( 3 )]
+wait_time = 60.0
+
 [connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]

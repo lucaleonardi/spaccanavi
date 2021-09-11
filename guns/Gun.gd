@@ -31,7 +31,6 @@ func shoot(enemy_color: Color, spaceship_rotation: float, spaceship_velocity: Ve
 
 func create_hit_effect(enemy_color: Color, hit_global_position: Vector2, hit_direction: Vector2) -> void:
 	var hit: CPUParticles2D = HitEffect.instance()
-	hit.connect("effect_finished", hit, "queue_free")
 	hit.global_position = hit_global_position
 	hit.set_direction(-hit_direction)
 	hit.set_emitting(true)

@@ -55,4 +55,5 @@ position = Vector2( -485, 753 )
 position = Vector2( -777, 436 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

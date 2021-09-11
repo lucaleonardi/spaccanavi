@@ -46,17 +46,19 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -197.0
-margin_top = -11.0
+margin_top = -42.0
 margin_right = 198.0
-margin_bottom = 99.0
+margin_bottom = 170.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+custom_constants/separation = 12
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PlayBtn" parent="Buttons" instance=ExtResource( 2 )]
-margin_bottom = 110.0
+margin_bottom = 100.0
 
 [node name="QuitBtn" parent="Buttons" instance=ExtResource( 3 )]
-visible = false
+margin_top = 112.0
+margin_bottom = 212.0

@@ -2,14 +2,14 @@ extends Spawner
 
 const _hexagon = Preload.ENEMY.HEXAGON
 const _tank = Preload.ENEMY.TANK
-const _chaser = Preload.ENEMY.CHASER
+const _chaser_group = Preload.ENEMY.CHASER_GROUP
 const _triangle = Preload.ENEMY.TRIANGLE
 const _aggressive_chaser = Preload.ENEMY.AGGRESSIVE_CHASER
 const _little_star = Preload.ENEMY.LITTLESTAR
 const _sniper = Preload.ENEMY.SNIPER
 
 const enemies = {
-	0: preload(_chaser),
+	0: preload(_chaser_group),
 	1: preload(_hexagon),
 	2: preload(_tank),
 	3: preload(_triangle),

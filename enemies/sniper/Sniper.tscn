@@ -67,4 +67,5 @@ scale = Vector2( 4.91667, 4.91667 )
 stream = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="." index="8"]
+
 [connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_player_out_of_sight"]

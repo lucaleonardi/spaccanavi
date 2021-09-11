@@ -13,8 +13,7 @@ func _ready() -> void:
 	set_physics_process(false)
 	$Type.texture = texture
 	$RotatingOutline.play('start')
-
-
+		
 func _on_PickupArea_body_entered(body: Node) -> void:
 	if body is Player and !PlayerStats.has_pickup:
 		PlayerStats.ability_texture = texture

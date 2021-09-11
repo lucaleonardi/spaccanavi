@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/HealthBar/HealthBar.gd" type="Script" id=1]
 [ext_resource path="res://UI/HealthBar/HealthBar.tscn" type="PackedScene" id=2]
@@ -8,9 +8,7 @@
 [ext_resource path="res://UI/Buttons/QuitBtn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/RetryBtn.gd" type="Script" id=7]
 [ext_resource path="res://UI/Interface.gd" type="Script" id=8]
-[ext_resource path="res://abilities/shield/shield.png" type="Texture" id=9]
-[ext_resource path="res://UI/Ability/ability_ui_bg.png" type="Texture" id=11]
-[ext_resource path="res://UI/AbilityContainer.gd" type="Script" id=12]
+[ext_resource path="res://UI/Ability/AbilityContainer.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -63,36 +61,7 @@ grow_horizontal = 0
 size_flags_horizontal = 6
 size_flags_vertical = 8
 
-[node name="AbilityContainer" type="CenterContainer" parent="GameUI/HBoxContainer"]
-visible = false
-margin_right = 70.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 70, 70 )
-size_flags_horizontal = 0
-size_flags_vertical = 8
-script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="TextureProgress" type="TextureProgress" parent="GameUI/HBoxContainer/AbilityContainer"]
-margin_right = 70.0
-margin_bottom = 70.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 70, 70 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-value = 100.0
-texture_under = ExtResource( 11 )
-texture_progress = ExtResource( 9 )
-fill_mode = 5
-
-[node name="AbilityIcon" type="TextureRect" parent="GameUI/HBoxContainer/AbilityContainer"]
-margin_left = 35.0
-margin_top = 35.0
-margin_right = 35.0
-margin_bottom = 35.0
+[node name="AbilityContainer" parent="GameUI/HBoxContainer" instance=ExtResource( 9 )]
 
 [node name="HealthContainer" type="MarginContainer" parent="GameUI/HBoxContainer"]
 margin_right = 610.0
@@ -141,17 +110,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -148.0
-margin_top = -100.0
-margin_right = 148.0
-margin_bottom = 100.0
+margin_left = -150.864
+margin_top = -100.054
+margin_right = 145.136
+margin_bottom = 120.946
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="PauseOverlay/Options"]
+margin_right = 296.0
+margin_bottom = 68.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RetryBtn" type="Button" parent="PauseOverlay/Options"]
+margin_top = 76.0
 margin_right = 296.0
-margin_bottom = 98.0
+margin_bottom = 144.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "Retry"
@@ -161,9 +142,9 @@ __meta__ = {
 }
 
 [node name="MenuBtn" parent="PauseOverlay/Options" instance=ExtResource( 5 )]
-margin_top = 102.0
+margin_top = 152.0
 margin_right = 296.0
-margin_bottom = 200.0
+margin_bottom = 221.0
 text = "Menu"
 next_scene_path = "res://main_menu/MainMenu.tscn"
 
@@ -172,6 +153,7 @@ visible = false
 margin_top = 136.0
 margin_right = 296.0
 margin_bottom = 200.0
+[connection signal="button_up" from="PauseOverlay/Options/Continue" to="." method="_on_Continue_button_up"]
 [connection signal="button_up" from="PauseOverlay/Options/RetryBtn" to="PauseOverlay/Options/RetryBtn" method="_on_button_up"]
 
 [editable path="GameUI/WaveHandler"]

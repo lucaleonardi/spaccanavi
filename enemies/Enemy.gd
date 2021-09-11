@@ -41,7 +41,6 @@ func _on_Stats_no_health() -> void:
 		emit_signal("enemy_death", wave_points)
 	queue_free()
 	var death_effect: CPUParticles2D = DeathEffect.instance()
-	death_effect.connect("effect_finished", death_effect, "queue_free")
 	death_effect.global_position = global_position
 	death_effect.emitting = true
 	death_effect.set_modulate(modulate)

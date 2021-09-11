@@ -12,14 +12,23 @@ export (bool) var enable_limits = false
 
 var trauma := 0.0
 var trauma_power := 2
+var input_method := ""
 
 var player
+var joystick: Joystick
 var mouse_position
 
 var distance
 var pointer_drag := Vector2(170, 96)
 
 func _ready() -> void:
+	if OS.has_touchscreen_ui_hint():
+		zoom *= 0.875
+		input_method = "_mobile"
+	else:
+		zoom = Vector2.ONE
+		input_method = "_desktop"
+		
 	if enable_limits:
 		limit_top = topLeft.position.y
 		limit_left = topLeft.position.x
@@ -27,6 +36,7 @@ func _ready() -> void:
 		limit_right = bottomRight.position.x
 	
 	player = get_tree().root.get_node("World/Player/Default")
+	joystick = player.get_node("TouchControls/MarginContainer/AimAndAbility/JoystickRight")
 	player.connect("shake_camera", self, "add_trauma")
 	
 	randomize()
@@ -36,13 +46,20 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if get_tree().root.get_node("World/Player").has_node("Default"):
-		distance = get_global_mouse_position() - player.global_position
+		distance = call(input_method)
 		offset.x = lerp(offset.x, clamp(distance.x, -pointer_drag.x, pointer_drag.x) / 2, 0.1)
 		offset.y = lerp(offset.y, clamp(distance.y, -pointer_drag.y, pointer_drag.y) / 2, 0.1)
 	
 	if trauma:
 		trauma = max(trauma - decay * delta, 0)
 		shake()
+
+func _desktop() -> Vector2:
+	return get_global_mouse_position() - player.global_position
+
+func _mobile() -> Vector2:
+	return Vector2.ZERO.direction_to(joystick.output) * 1000
+
 
 func add_trauma(amount: float) -> void:
 	trauma = min(trauma + amount, 1.0)
