@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/fonts/Futura Heavy font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/Buttons/ChangeSceneBtn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Buttons/QuitBtn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Menu/title.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -15,11 +16,13 @@ margin_left = 4.0
 margin_top = 4.0
 margin_right = 4.0
 margin_bottom = 4.0
+rect_pivot_offset = Vector2( 1204.56, 321.845 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title2" type="Label" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -40,15 +43,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Title" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -666.5
+margin_top = -318.0
+margin_right = 666.5
+margin_bottom = -18.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -197.0
-margin_top = -42.0
+margin_top = 118.0
 margin_right = 198.0
-margin_bottom = 170.0
+margin_bottom = 330.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 custom_constants/separation = 12
