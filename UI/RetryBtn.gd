@@ -1,4 +1,4 @@
-extends Button
+extends BaseBtn
 
 func _on_button_up() -> void:
 	Engine.time_scale = 1

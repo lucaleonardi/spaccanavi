@@ -1,21 +1,23 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://UI/HealthBar/HealthBar.gd" type="Script" id=1]
 [ext_resource path="res://UI/HealthBar/HealthBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Wave.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/fonts/Futura Heavy font.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://UI/Buttons/ChangeSceneBtn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI/Buttons/QuitBtn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Buttons/BaseBtn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/RetryBtn.gd" type="Script" id=7]
 [ext_resource path="res://UI/Interface.gd" type="Script" id=8]
 [ext_resource path="res://UI/Ability/AbilityContainer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/Menu/btn_continue_hover.png" type="Texture" id=10]
+[ext_resource path="res://UI/Menu/btn_continue_normal.png" type="Texture" id=11]
+[ext_resource path="res://UI/Menu/btn_retry_normal.png" type="Texture" id=12]
+[ext_resource path="res://UI/Menu/btn_retry_hover.png" type="Texture" id=13]
+[ext_resource path="res://UI/Menu/btn_menu_normal.png" type="Texture" id=14]
+[ext_resource path="res://UI/Menu/btn_menu_hover.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 32
 font_data = ExtResource( 4 )
 
 [node name="Interface" type="Control"]
@@ -47,16 +49,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 480.0
+margin_left = 760.0
 margin_top = 48.0
-margin_right = 880.0
+margin_right = 1160.0
 margin_bottom = 114.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GameUI"]
-margin_left = 375.0
-margin_top = 662.0
-margin_right = 985.0
-margin_bottom = 732.0
+margin_left = 655.0
+margin_top = 974.0
+margin_right = 1265.0
+margin_bottom = 1044.0
 grow_horizontal = 0
 size_flags_horizontal = 6
 size_flags_vertical = 8
@@ -88,6 +90,7 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="PauseOverlay"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -105,55 +108,74 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Options" type="VBoxContainer" parent="PauseOverlay"]
+[node name="CenterContainer" type="CenterContainer" parent="PauseOverlay"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -150.864
-margin_top = -100.054
-margin_right = 145.136
-margin_bottom = 120.946
-custom_constants/separation = 8
+margin_left = -256.0
+margin_top = -256.0
+margin_right = 256.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 512, 512 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="Button" parent="PauseOverlay/Options"]
-margin_right = 296.0
-margin_bottom = 68.0
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
-text = "Continue"
+[node name="Options" type="VBoxContainer" parent="PauseOverlay/CenterContainer"]
+margin_left = 23.0
+margin_top = 157.0
+margin_right = 489.0
+margin_bottom = 355.0
+custom_constants/separation = 36
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RetryBtn" type="Button" parent="PauseOverlay/Options"]
-margin_top = 76.0
-margin_right = 296.0
-margin_bottom = 144.0
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
-text = "Retry"
+[node name="CenterContainer" type="CenterContainer" parent="PauseOverlay/CenterContainer/Options"]
+margin_right = 466.0
+margin_bottom = 83.0
+
+[node name="ContinueBtn" parent="PauseOverlay/CenterContainer/Options/CenterContainer" instance=ExtResource( 6 )]
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="PauseOverlay/CenterContainer/Options"]
+visible = false
+margin_top = 115.0
+margin_right = 466.0
+margin_bottom = 198.0
+
+[node name="RetryBtn" parent="PauseOverlay/CenterContainer/Options/CenterContainer2" instance=ExtResource( 6 )]
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="MenuBtn" parent="PauseOverlay/Options" instance=ExtResource( 5 )]
-margin_top = 152.0
-margin_right = 296.0
-margin_bottom = 221.0
-text = "Menu"
+[node name="CenterContainer3" type="CenterContainer" parent="PauseOverlay/CenterContainer/Options"]
+visible = false
+margin_top = 115.0
+margin_right = 466.0
+margin_bottom = 198.0
+
+[node name="RestartBtn" parent="PauseOverlay/CenterContainer/Options/CenterContainer3" instance=ExtResource( 6 )]
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+script = ExtResource( 7 )
+
+[node name="CenterContainer4" type="CenterContainer" parent="PauseOverlay/CenterContainer/Options"]
+margin_top = 230.0
+margin_right = 466.0
+margin_bottom = 313.0
+
+[node name="MenuBtn" parent="PauseOverlay/CenterContainer/Options/CenterContainer4" instance=ExtResource( 5 )]
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
 next_scene_path = "res://main_menu/MainMenu.tscn"
 
-[node name="QuitBtn" parent="PauseOverlay/Options" instance=ExtResource( 6 )]
-visible = false
-margin_top = 136.0
-margin_right = 296.0
-margin_bottom = 200.0
-[connection signal="button_up" from="PauseOverlay/Options/Continue" to="." method="_on_Continue_button_up"]
-[connection signal="button_up" from="PauseOverlay/Options/RetryBtn" to="PauseOverlay/Options/RetryBtn" method="_on_button_up"]
+[connection signal="button_up" from="PauseOverlay/CenterContainer/Options/CenterContainer/ContinueBtn" to="." method="_on_Continue_button_up"]
 
 [editable path="GameUI/WaveHandler"]

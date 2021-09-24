@@ -3,7 +3,9 @@ extends Control
 onready var scene_tree: = get_tree()
 onready var pause_overlay: ColorRect = $PauseOverlay
 onready var pause_title: Label = $PauseOverlay/Title
-onready var continue_btn: Button = $PauseOverlay/Options/Continue
+onready var continue_btn: CenterContainer = $PauseOverlay/CenterContainer/Options/CenterContainer #/ContinueBtn
+onready var retry_btn: CenterContainer = $PauseOverlay/CenterContainer/Options/CenterContainer2 #/RetryBtn
+onready var restart_btn: CenterContainer = $PauseOverlay/CenterContainer/Options/CenterContainer3 #/RestartBtn
 
 var paused: = false setget set_paused
 
@@ -15,6 +17,8 @@ func _on_player_death() -> void:
 	yield(get_tree().create_timer(1.5), "timeout")
 	pause_overlay.visible = true
 	continue_btn.visible = false
+	restart_btn.visible = false
+	retry_btn.visible = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and pause_title.text != "You died":
