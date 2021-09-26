@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/HealthBar.gd" type="Script" id=1]
+[ext_resource path="res://UI/WaveBar/wave_number_container.png" type="Texture" id=2]
+[ext_resource path="res://UI/HealthBar/health_bar_outline.png" type="Texture" id=3]
+[ext_resource path="res://UI/HealthBar/health_bar_label.png" type="Texture" id=4]
+[ext_resource path="res://UI/HealthBar/health_bar_fill_3.png" type="Texture" id=5]
+[ext_resource path="res://UI/Ability/ability_ui_bg.png" type="Texture" id=6]
+
+[node name="HealthHandler" type="HBoxContainer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -113.0
+margin_right = 891.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+custom_constants/separation = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_top = 23.0
+margin_right = 769.0
+margin_bottom = 113.0
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 769.0
+margin_bottom = 29.0
+custom_constants/margin_right = 16
+custom_constants/margin_bottom = 8
+
+[node name="HealthBarLabel" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+margin_left = 563.0
+margin_right = 753.0
+margin_bottom = 21.0
+size_flags_horizontal = 8
+texture = ExtResource( 4 )
+
+[node name="HealthBarProgress" type="TextureProgress" parent="VBoxContainer"]
+margin_top = 33.0
+margin_right = 769.0
+margin_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 768, 56 )
+value = 100.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 5 )
+tint_progress = Color( 0.416667, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 773.0
+margin_top = 3.0
+margin_right = 875.0
+margin_bottom = 113.0
+size_flags_vertical = 8
+custom_constants/margin_left = -16
+custom_constants/margin_bottom = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_left = -16.0
+margin_right = 102.0
+margin_bottom = 102.0
+
+[node name="AbilityContainer" type="TextureRect" parent="MarginContainer/CenterContainer"]
+margin_right = 118.0
+margin_bottom = 102.0
+texture = ExtResource( 2 )
+
+[node name="AbilityBg" type="TextureRect" parent="MarginContainer/CenterContainer"]
+visible = false
+margin_left = 9.0
+margin_top = 1.0
+margin_right = 109.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+
+[node name="AbilityIcon" type="TextureRect" parent="MarginContainer/CenterContainer"]
+margin_left = 41.0
+margin_top = 33.0
+margin_right = 77.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 36, 36 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

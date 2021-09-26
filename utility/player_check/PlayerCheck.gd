@@ -9,6 +9,6 @@ func _ready() -> void:
 	connect("timeout", self, "_check_player_distance")
 
 func _check_player_distance() -> void:
-	if player.is_inside_tree(): # check if player is still alive
+	if get_tree().root.has_node(get_path_to(player)): # check if player is still alive
 		if parent.global_position.distance_to(player.global_position) > allowed_distance:
 			parent.queue_free()

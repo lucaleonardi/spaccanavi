@@ -1,66 +1,107 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://UI/fonts/Futura Heavy font.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://UI/WaveBar/wave_outline.png" type="Texture" id=2]
-[ext_resource path="res://UI/WaveBar/wave_fill.png" type="Texture" id=3]
+[ext_resource path="res://UI/fonts/Platinum Sign Over.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/WaveBar/wave_number_container.png" type="Texture" id=2]
+[ext_resource path="res://UI/WaveBar/wave_bar_label.png" type="Texture" id=3]
+[ext_resource path="res://UI/fonts/Platinum Sign Under.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://UI/WaveBar/WaveBar.gd" type="Script" id=5]
+[ext_resource path="res://UI/WaveBar/wave_bar_outline.png" type="Texture" id=6]
+[ext_resource path="res://UI/WaveBar/wave_bar_fill.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
 font_data = ExtResource( 1 )
 
-[node name="WaveHandler" type="VBoxContainer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -339.0
-margin_right = 200.0
-margin_bottom = -273.0
-rect_min_size = Vector2( 400, 66 )
-rect_pivot_offset = Vector2( 200, 33 )
+[node name="WaveHandler" type="HBoxContainer"]
+margin_right = 875.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 875, 110 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
+custom_constants/separation = 4
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 141.0
-margin_right = 259.0
-margin_bottom = 44.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 102.0
+margin_bottom = 110.0
+custom_constants/margin_right = -16
+custom_constants/margin_top = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_top = 8.0
+margin_right = 118.0
+margin_bottom = 110.0
+
+[node name="WaveNumberContainer" type="TextureRect" parent="MarginContainer/CenterContainer"]
+margin_right = 118.0
+margin_bottom = 102.0
+texture = ExtResource( 2 )
+
+[node name="WaveLabelUnder" type="Label" parent="MarginContainer/CenterContainer"]
+margin_left = 34.0
+margin_top = 22.0
+margin_right = 83.0
+margin_bottom = 79.0
 grow_horizontal = 2
 rect_min_size = Vector2( 49, 14 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_fonts/font = SubResource( 1 )
-text = "WAVE "
+text = "1"
 align = 1
 uppercase = true
 
-[node name="WaveBar" type="TextureProgress" parent="."]
-margin_top = 48.0
-margin_right = 400.0
-margin_bottom = 66.0
+[node name="WaveLabelOver" type="Label" parent="MarginContainer/CenterContainer"]
+margin_left = 34.0
+margin_top = 22.0
+margin_right = 83.0
+margin_bottom = 79.0
+grow_horizontal = 2
+rect_min_size = Vector2( 49, 14 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 106.0
+margin_right = 875.0
+margin_bottom = 110.0
+
+[node name="WaveBarProgress" type="TextureProgress" parent="VBoxContainer"]
+margin_right = 769.0
+margin_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 0
-rect_min_size = Vector2( 283, 14 )
-rect_pivot_offset = Vector2( 141, 0 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
 value = 100.0
-texture_under = ExtResource( 2 )
-texture_progress = ExtResource( 3 )
-tint_progress = Color( 0.435294, 0.921569, 1, 1 )
-nine_patch_stretch = true
-stretch_margin_left = 5
-stretch_margin_top = 5
-stretch_margin_right = 5
-stretch_margin_bottom = 5
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 61.0
+margin_right = 769.0
+margin_bottom = 90.0
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+
+[node name="WaveBarLabel" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 769.0
+margin_bottom = 29.0
+texture = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
