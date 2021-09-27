@@ -1,60 +1,51 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Joystick/Joystick.gd" type="Script" id=1]
-[ext_resource path="res://Joystick/joystick_handle-x2.png" type="Texture" id=2]
-[ext_resource path="res://Joystick/joystick_background.png" type="Texture" id=3]
+[ext_resource path="res://UI/Joystick/joystick_stick.png" type="Texture" id=2]
+[ext_resource path="res://UI/Joystick/joystick_container_L.png" type="Texture" id=3]
+[ext_resource path="res://UI/Joystick/joystick_bg_L_1.png" type="Texture" id=4]
 
-[node name="Joystick" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -192.0
-margin_top = -192.0
-margin_right = 192.0
-margin_bottom = 192.0
-rect_pivot_offset = Vector2( 192, 192 )
+[node name="Joystick" type="MarginContainer"]
+margin_right = 256.0
+margin_bottom = 256.0
 mouse_filter = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0.501961 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -128.0
-margin_right = 128.0
-margin_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_scale = Vector2( 1.5, 1.5 )
-rect_pivot_offset = Vector2( 128, 128 )
-texture = ExtResource( 3 )
-stretch_mode = 6
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 397.0
+margin_bottom = 372.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_right = 373.0
+margin_bottom = 372.0
+size_flags_horizontal = 0
+
+[node name="Handle" type="TextureRect" parent="MarginContainer/CenterContainer"]
+margin_left = 112.0
+margin_top = 112.0
+margin_right = 260.0
+margin_bottom = 260.0
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Handle" type="TextureRect" parent="Background"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -128.0
-margin_right = 128.0
-margin_bottom = 128.0
+[node name="Background" type="TextureRect" parent="MarginContainer/CenterContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 8.0
+margin_right = 373.0
+margin_bottom = 363.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_scale = Vector2( 0.5, 0.5 )
-rect_pivot_offset = Vector2( 128, 128 )
-texture = ExtResource( 2 )
-stretch_mode = 6
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="3DBackground" type="TextureRect" parent="."]
+margin_right = 397.0
+margin_bottom = 372.0
+texture = ExtResource( 4 )

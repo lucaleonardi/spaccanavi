@@ -22,6 +22,8 @@ onready var shooting_cooldown: Timer = $ShootingDirection/Gun/Cooldown
 onready var joysticksContainer : MarginContainer = $TouchControls/MarginContainer
 onready var joystickLeft : Joystick = $TouchControls/MarginContainer/JoystickLeft
 onready var joystickRight : Joystick = $TouchControls/MarginContainer/AimAndAbility/JoystickRight
+onready var ability_bg: TextureRect = $TouchControls/MarginContainer/AimAndAbility/ActivateAbility/AbilityBg
+onready var ability_icon: TextureRect = $TouchControls/MarginContainer/AimAndAbility/ActivateAbility/CenterContainer/AbilityIcon
 
 onready var hurt_sound: AudioStreamPlayer = $HurtSound
 onready var blinkAnimationPlayer: AnimationPlayer = $BlinkAnimationPlayer
@@ -46,6 +48,7 @@ func _ready() -> void:
 	if OS.has_touchscreen_ui_hint():
 		input_method = "_touchscreen_controls"
 		joysticksContainer.visible = true
+		PlayerStats.connect("signal_has_pickup", self, "set_ability")
 	else:
 		input_method = "_desktop_controls"
 		joysticksContainer.visible = false
@@ -131,6 +134,12 @@ func death() -> void:
 	
 	death_effect.set_as_toplevel(true)
 	get_parent().add_child(death_effect)
+
+
+func set_ability(has_pickup: bool) -> void:
+	ability_bg.visible = has_pickup
+	ability_icon.visible = has_pickup
+	ability_icon.texture = PlayerStats.ability_texture
 
 
 func _on_Player_body_entered(body: Node) -> void:

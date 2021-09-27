@@ -39,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://guns/Gun.gd"
 }, {
-"base": "Control",
+"base": "MarginContainer",
 "class": "Joystick",
 "language": "GDScript",
 "path": "res://Joystick/Joystick.gd"
@@ -99,7 +99,7 @@ AudioManager="*res://audio/AudioManager.tscn"
 
 window/size/width=1920
 window/size/height=1080
-window/size/test_width=1360
+window/size/test_width=1366
 window/size/test_height=768
 mouse_cursor/custom_image="res://mouse/pointer.png"
 mouse_cursor/custom_image_hotspot=Vector2( 18, 18 )
@@ -110,6 +110,10 @@ window/stretch/aspect="expand"
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
+
+[global]
+
+INPUT=false
 
 [input]
 

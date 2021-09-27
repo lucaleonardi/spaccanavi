@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://sounds/player_hurt.wav" type="AudioStream" id=2]
 [ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=3]
 [ext_resource path="res://shaders/Damage.shader" type="Shader" id=4]
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI/Buttons/PauseBtn.png" type="Texture" id=6]
-[ext_resource path="res://Joystick/joystick_handle.png" type="Texture" id=7]
+[ext_resource path="res://UI/Joystick/joystick_bg_R_1.png" type="Texture" id=6]
+[ext_resource path="res://UI/Joystick/ability_btn_1.png" type="Texture" id=7]
+[ext_resource path="res://UI/Joystick/pause_btn.png" type="Texture" id=8]
+[ext_resource path="res://UI/Ability/ability_ui_bg.png" type="Texture" id=10]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -87,77 +89,122 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 96
-custom_constants/margin_top = 96
+custom_constants/margin_top = 32
 custom_constants/margin_left = 96
 custom_constants/margin_bottom = 96
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PauseButton" type="Control" parent="TouchControls/MarginContainer"]
+[node name="PauseButton" type="MarginContainer" parent="TouchControls/MarginContainer"]
 margin_left = 96.0
-margin_top = 96.0
+margin_top = 32.0
 margin_right = 96.0
-margin_bottom = 96.0
+margin_bottom = 32.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+custom_constants/margin_left = -96
 
-[node name="Button" type="TouchScreenButton" parent="TouchControls/MarginContainer/PauseButton"]
+[node name="Control" type="Control" parent="TouchControls/MarginContainer/PauseButton"]
+margin_left = -96.0
+
+[node name="Button" type="TouchScreenButton" parent="TouchControls/MarginContainer/PauseButton/Control"]
 modulate = Color( 1, 1, 1, 0.556863 )
-scale = Vector2( 0.25, 0.25 )
-normal = ExtResource( 6 )
+normal = ExtResource( 8 )
 action = "pause"
 
 [node name="JoystickLeft" parent="TouchControls/MarginContainer" instance=ExtResource( 5 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 96.0
-margin_top = 600.0
-margin_right = 480.0
+margin_top = 612.0
+margin_right = 493.0
 margin_bottom = 984.0
-rect_min_size = Vector2( 384, 384 )
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
 [node name="AimAndAbility" type="VBoxContainer" parent="TouchControls/MarginContainer"]
-margin_left = 1440.0
-margin_top = 384.0
+margin_left = 1427.0
+margin_top = 378.0
 margin_right = 1824.0
 margin_bottom = 984.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-custom_constants/separation = 24
+custom_constants/separation = -64
 
-[node name="ActivateAbility" type="Control" parent="TouchControls/MarginContainer/AimAndAbility"]
-modulate = Color( 1, 1, 1, 0.556863 )
-margin_left = 192.0
-margin_right = 384.0
-margin_bottom = 192.0
-rect_min_size = Vector2( 192, 192 )
+[node name="ActivateAbility" type="MarginContainer" parent="TouchControls/MarginContainer/AimAndAbility"]
+margin_left = 233.0
+margin_right = 397.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 162, 254 )
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="Button" type="TouchScreenButton" parent="TouchControls/MarginContainer/AimAndAbility/ActivateAbility"]
-scale = Vector2( 1.5, 1.5 )
+[node name="AbilityBtn" type="TouchScreenButton" parent="TouchControls/MarginContainer/AimAndAbility/ActivateAbility"]
+position = Vector2( -22, 0 )
 normal = ExtResource( 7 )
 action = "activate_pickup"
-__meta__ = {
-"_editor_description_": ""
-}
+
+[node name="AbilityBg" type="TextureRect" parent="TouchControls/MarginContainer/AimAndAbility/ActivateAbility"]
+visible = false
+modulate = Color( 1, 1, 1, 0.9 )
+margin_right = 164.0
+margin_bottom = 196.0
+rect_min_size = Vector2( 164, 196 )
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="TouchControls/MarginContainer/AimAndAbility/ActivateAbility"]
+margin_right = 164.0
+margin_bottom = 196.0
+rect_min_size = Vector2( 164, 196 )
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="AbilityIcon" type="TextureRect" parent="TouchControls/MarginContainer/AimAndAbility/ActivateAbility/CenterContainer"]
+modulate = Color( 1, 1, 1, 0.9 )
+margin_left = 60.0
+margin_top = 76.0
+margin_right = 104.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 44, 44 )
+expand = true
+stretch_mode = 6
 
 [node name="JoystickRight" parent="TouchControls/MarginContainer/AimAndAbility" instance=ExtResource( 5 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 216.0
-margin_right = 384.0
-margin_bottom = 600.0
+margin_top = 190.0
+margin_right = 397.0
+margin_bottom = 606.0
 rect_min_size = Vector2( 384, 384 )
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
+[node name="MarginContainer" parent="TouchControls/MarginContainer/AimAndAbility/JoystickRight" index="0"]
+margin_bottom = 416.0
+custom_constants/margin_bottom = 8
+
+[node name="CenterContainer" parent="TouchControls/MarginContainer/AimAndAbility/JoystickRight/MarginContainer" index="0"]
+margin_left = 24.0
+margin_top = 53.0
+margin_right = 397.0
+margin_bottom = 408.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Handle" parent="TouchControls/MarginContainer/AimAndAbility/JoystickRight/MarginContainer/CenterContainer" index="0"]
+margin_top = 103.0
+margin_bottom = 251.0
+
+[node name="Background" parent="TouchControls/MarginContainer/AimAndAbility/JoystickRight/MarginContainer/CenterContainer" index="1"]
+margin_top = 0.0
+margin_bottom = 355.0
+
+[node name="3DBackground" parent="TouchControls/MarginContainer/AimAndAbility/JoystickRight" index="1"]
+margin_bottom = 416.0
+texture = ExtResource( 6 )
+
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+
+[editable path="TouchControls/MarginContainer/JoystickLeft"]
+[editable path="TouchControls/MarginContainer/AimAndAbility/JoystickRight"]
