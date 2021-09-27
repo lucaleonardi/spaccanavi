@@ -1,15 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://UI/fonts/Futura Heavy font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/Buttons/ChangeSceneBtn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Buttons/QuitBtn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/Menu/title.png" type="Texture" id=4]
 [ext_resource path="res://UI/Menu/btn_play_hover.png" type="Texture" id=5]
 [ext_resource path="res://UI/Menu/btn_play_normal.png" type="Texture" id=6]
-
-[sub_resource type="DynamicFont" id=1]
-size = 72
-font_data = ExtResource( 1 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -19,28 +14,6 @@ margin_top = 4.0
 margin_right = 4.0
 margin_bottom = 4.0
 rect_pivot_offset = Vector2( 1204.56, 321.845 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title2" type="Label" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -660.0
-margin_top = -171.5
-margin_right = 660.0
-margin_bottom = -84.5
-grow_vertical = 0
-rect_min_size = Vector2( 1320, 87 )
-size_flags_vertical = 0
-custom_fonts/font = SubResource( 1 )
-text = "SpaccaNavi"
-align = 1
-valign = 1
-uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

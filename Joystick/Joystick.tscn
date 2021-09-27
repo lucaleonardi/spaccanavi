@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Joystick/Joystick.gd" type="Script" id=1]
 [ext_resource path="res://UI/Joystick/joystick_stick.png" type="Texture" id=2]
-[ext_resource path="res://UI/Joystick/joystick_container_L.png" type="Texture" id=3]
-[ext_resource path="res://UI/Joystick/joystick_bg_L_1.png" type="Texture" id=4]
+[ext_resource path="res://UI/Joystick/joystick_container.png" type="Texture" id=3]
+[ext_resource path="res://UI/Joystick/joystick_bg_L.png" type="Texture" id=4]
 
 [node name="Joystick" type="MarginContainer"]
 margin_right = 256.0
